@@ -563,7 +563,7 @@ def query_azure(feature_names, features):
     body = str.encode(json.dumps(data))
 
     url = 'https://ussouthcentral.services.azureml.net/workspaces/e09832186fd7451abe2a0ca30256cebb/services/14a37a5bfcc248aa8c93341e357bb2bd/execute?api-version=2.0&details=true'
-    api_key = 'Mh5Hmyp6r7zR9V0V0YXyRbTJi8H5KuD7lJH9mVGLXFxmDCVWlZOMyJiREtN0uFrToj/p9stHtF1TXxk+UwPFMg=='  # Replace this with the API key for the web service
+    api_key = ''  # Replace this with the API key for the web service
     headers = {'Content-Type': 'application/json', 'Authorization': ('Bearer ' + api_key)}
 
     req = urllib.request.Request(url, body, headers)
