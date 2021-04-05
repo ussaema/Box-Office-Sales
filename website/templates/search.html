@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block content %}
+{% csrf_token %}
+<div id="preloader_search" style="display: inline;">
+<div id="preloader"  style="filter: alpha(opacity=100); opacity: 1; -moz-opacity: 1;">
+<img class="logo" src="{% static 'images/logo1.png' %}" alt="" width="119" height="58">
+<div id="status">
+	<span></span>
+	<span></span>
+	<div style="position: absolute;left:10px; top: -25px ; color: #FFF; width : 120px"> searching ...</div>
+</div>
+</div>
+</div>
+<div class="hero common-hero">
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<div class="hero-ct">
+<h1 id = "title"></h1>
+<div id="scrollInto"></div>
+<ul class="breadcumb">
+<li class="active"><a href="index/">Home</a></li>
+<li> <span class="ion-ios-arrow-right"></span>Search</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="page-single">
+<div class="container">
+<div class="row">
+
+
+<div id="results_list" class="col-md-12 col-sm-12 col-xs-12" style="display: none">
+<div class="topbar-filter fw" style ="height : 30px">
+   <p>Results from the IMDb database</p>
+</div>
+<div id="results_list_movies" class='flex-wrap-movielist mv-grid-fw'>
+   
+   
+</div>
+<div class="topbar-filter">
+</div>
+</div>
+</div>
+</div>
+<script>
+function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+};
+document.getElementById("title").innerHTML = 'Results for "' + getUrlParameter('title') + '"';
+
+$.ajax({
+   type: "POST",
+   url: '{% url 'search_query' %}',
+   data: { csrfmiddlewaretoken: '{{ csrf_token }}', fct: 'search_list' , title: getUrlParameter('title') },
+   success: function callback(data, textStatus){
+			   document.getElementById("preloader_search").style.display = "none";
+			   document.getElementById("results_list").style.display = "inline";
+			   document.getElementById("results_list_movies").innerHTML = JSON.stringify(data).substr(1).slice(0, -1);
+            }
+});
+</script>
+{% endblock %}

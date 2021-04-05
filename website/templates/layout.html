@@ -1,0 +1,1255 @@
+﻿<!DOCTYPE html> {% load staticfiles %}
+<!-- Optimization for social media (OGP: Open Graph protocol) -->
+<!--[if IE 7]>
+<html class="ie ie7 no-js" lang="pt_BR" prefix="og: http://ogp.me/ns#">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8 no-js" lang="pt_BR" prefix="og: http://ogp.me/ns#">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en" class="no-js" prefix="og: http://ogp.me/ns#">
+    <head>
+        <!-- Google Tag Manager --
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117871767-1" type="f4a2ebef2e98f37d52a0ad8f-text/javascript"></script>
+            <script type="f4a2ebef2e98f37d52a0ad8f-text/javascript">
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                    
+                gtag('config', 'UA-117871767-1');
+            </script>           
+            -->
+        <!--Header -->
+        <title>{{ title }} - TUMoviesDL - The Deep Learning based platform for predicting the opening weekend success of a movie</title>
+        <!-- Metas -->
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <meta charset="UTF-8">
+        <meta name="robots" content="index, follow">
+        <meta name="description" content="Deep Learning, Machine Learning, Artificial Intelligence, Prediction, Movies 1080p, Movies 720p, Séries 1080p, Séries 720p, Netflix free, Movies Online free, Series Online free, Movies Online, Series Online, Movies HD, Series HD">
+        <meta name="keywords" content="Movies online, Series online, Filme online, Series online, Movies free, Deep Learning, Machine Learning, Prediction, success, opening, Speech recognition">
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="TUMoviesDL - The Deep Learning based platform for predicting the opening weekend success of a movie" />
+        <meta property="og:description" content="Predict the success of a movie using Deep Learning" />
+        <meta property="og:url" content="" />
+        <meta property="og:site_name" content="TUMoviesDL - Opening Weekend Success Prediction" />
+        <meta property="og:image" content="{% static 'images/logo1.png' %}" />
+        <meta name="author" content="TUMoviesDL - Movies' Success Prediction">
+        <meta name="twitter:description" content="Deep Learning, Machine Learning, Artificial Intelligence, Prediction, Movies 1080p, Movies 720p, Séries 1080p, Séries 720p, Netflix free, Movies Online free, Series Online free, Movies Online, Series Online, Movies HD, Series HD" />
+        <meta name="twitter:title" content="TUMoviesDL - The Deep Learning based platform for Movies' Success Prediction" />
+        <meta name="twitter:image" content="{% static 'images/logo1.png' %}" />
+        <meta http-equiv="Cache-control" content="public">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="format-detection" content="telephone-no">
+        <!-- Links -->
+        <link rel="canonical" href="./" />
+        <link rel="profile" href="#">
+        <link rel="shortcut icon" href="{% static 'images/icon.ico' %}" />
+        <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
+        <link rel="stylesheet" href="{% static 'content/plugins.css' %}">
+        <link rel="stylesheet" href="{% static 'content/style.css' %}">
+		
+		<style class="cp-pen-styles">body {
+		  font-family: 'Montserrat', 'Lato', 'Open Sans', 'Helvetica Neue', Helvetica, Calibri, Arial, sans-serif;
+		  color: #6b7381;
+		  background: #f2f2f2;
+		}
+		.jumbotron {
+		  background: #6b7381;
+		  color: #bdc1c8;
+		}
+		.jumbotron h1 {
+		  color: #fff;
+		}
+		.example {
+		  margin: 4rem auto;
+		}
+		.example > .row {
+		  margin-top: 2rem;
+		  height: 5rem;
+		  vertical-align: middle;
+		  text-align: center;
+		  border: 1px solid rgba(189, 193, 200, 0.5);
+		}
+		.example > .row:first-of-type {
+		  border: none;
+		  height: auto;
+		  text-align: left;
+		}
+		.example h3 {
+		  font-weight: 400;
+		}
+		.example h3 > small {
+		  font-weight: 200;
+		  font-size: 0.75em;
+		  color: #939aa5;
+		}
+		.example h6 {
+		  font-weight: 700;
+		  font-size: 0.65rem;
+		  letter-spacing: 3.32px;
+		  text-transform: uppercase;
+		  color: #bdc1c8;
+		  margin: 0;
+		  line-height: 5rem;
+		}
+		.example .btn-toggle {
+		  top: 50%;
+		  transform: translateY(-50%);
+		}
+		.btn-toggle {
+		  margin: 0 4rem;
+		  padding: 0;
+		  position: relative;
+		  border: none;
+		  height: 1.5rem;
+		  width: 3rem;
+		  border-radius: 1.5rem;
+		  color: #6b7381;
+		  background: #bdc1c8;
+		}
+		.btn-toggle:focus,
+		.btn-toggle.focus,
+		.btn-toggle:focus.active,
+		.btn-toggle.focus.active {
+		  outline: none;
+		}
+		.btn-toggle:before,
+		.btn-toggle:after {
+		  line-height: 1.5rem;
+		  width: 4rem;
+		  text-align: center;
+		  font-weight: 600;
+		  font-size: 0.75rem;
+		  text-transform: uppercase;
+		  letter-spacing: 2px;
+		  position: absolute;
+		  bottom: 0;
+		  transition: opacity 0.25s;
+		}
+		.btn-toggle:before {
+		  content: 'Off';
+		  left: -4rem;
+		}
+		.btn-toggle:after {
+		  content: 'On';
+		  right: -4rem;
+		  opacity: 0.5;
+		}
+		.btn-toggle > .handle {
+		  position: absolute;
+		  top: 0.1875rem;
+		  left: 0.1875rem;
+		  width: 1.125rem;
+		  height: 1.125rem;
+		  border-radius: 1.125rem;
+		  background: #fff;
+		  transition: left 0.25s;
+		}
+		.btn-toggle.active {
+		  transition: background-color 0.25s;
+		}
+		.btn-toggle.active > .handle {
+		  left: 1.6875rem;
+		  transition: left 0.25s;
+		}
+		.btn-toggle.active:before {
+		  opacity: 0.5;
+		}
+		.btn-toggle.active:after {
+		  opacity: 1;
+		}
+		.btn-toggle.btn-sm:before,
+		.btn-toggle.btn-sm:after {
+		  line-height: -0.5rem;
+		  color: #fff;
+		  letter-spacing: 0.75px;
+		  left: 0.4125rem;
+		  width: 2.325rem;
+		}
+		.btn-toggle.btn-sm:before {
+		  text-align: right;
+		}
+		.btn-toggle.btn-sm:after {
+		  text-align: left;
+		  opacity: 0;
+		}
+		.btn-toggle.btn-sm.active:before {
+		  opacity: 0;
+		}
+		.btn-toggle.btn-sm.active:after {
+		  opacity: 1;
+		}
+		.btn-toggle.btn-xs:before,
+		.btn-toggle.btn-xs:after {
+		  display: none;
+		}
+		.btn-toggle:before,
+		.btn-toggle:after {
+		  color: #6b7381;
+		}
+		.btn-toggle.active {
+		  background-color: #29b5a8;
+		}
+		.btn-toggle.btn-lg {
+		  margin: 0 5rem;
+		  padding: 0;
+		  position: relative;
+		  border: none;
+		  height: 2.5rem;
+		  width: 5rem;
+		  border-radius: 2.5rem;
+		}
+		.btn-toggle.btn-lg:focus,
+		.btn-toggle.btn-lg.focus,
+		.btn-toggle.btn-lg:focus.active,
+		.btn-toggle.btn-lg.focus.active {
+		  outline: none;
+		}
+		.btn-toggle.btn-lg:before,
+		.btn-toggle.btn-lg:after {
+		  line-height: 2.5rem;
+		  width: 5rem;
+		  text-align: center;
+		  font-weight: 600;
+		  font-size: 1rem;
+		  text-transform: uppercase;
+		  letter-spacing: 2px;
+		  position: absolute;
+		  bottom: 0;
+		  transition: opacity 0.25s;
+		}
+		.btn-toggle.btn-lg:before {
+		  content: 'Off';
+		  left: -5rem;
+		}
+		.btn-toggle.btn-lg:after {
+		  content: 'On';
+		  right: -5rem;
+		  opacity: 0.5;
+		}
+		.btn-toggle.btn-lg > .handle {
+		  position: absolute;
+		  top: 0.3125rem;
+		  left: 0.3125rem;
+		  width: 1.875rem;
+		  height: 1.875rem;
+		  border-radius: 1.875rem;
+		  background: #fff;
+		  transition: left 0.25s;
+		}
+		.btn-toggle.btn-lg.active {
+		  transition: background-color 0.25s;
+		}
+		.btn-toggle.btn-lg.active > .handle {
+		  left: 2.8125rem;
+		  transition: left 0.25s;
+		}
+		.btn-toggle.btn-lg.active:before {
+		  opacity: 0.5;
+		}
+		.btn-toggle.btn-lg.active:after {
+		  opacity: 1;
+		}
+		.btn-toggle.btn-lg.btn-sm:before,
+		.btn-toggle.btn-lg.btn-sm:after {
+		  line-height: 0.5rem;
+		  color: #fff;
+		  letter-spacing: 0.75px;
+		  left: 0.6875rem;
+		  width: 3.875rem;
+		}
+		.btn-toggle.btn-lg.btn-sm:before {
+		  text-align: right;
+		}
+		.btn-toggle.btn-lg.btn-sm:after {
+		  text-align: left;
+		  opacity: 0;
+		}
+		.btn-toggle.btn-lg.btn-sm.active:before {
+		  opacity: 0;
+		}
+		.btn-toggle.btn-lg.btn-sm.active:after {
+		  opacity: 1;
+		}
+		.btn-toggle.btn-lg.btn-xs:before,
+		.btn-toggle.btn-lg.btn-xs:after {
+		  display: none;
+		}
+		.btn-toggle.btn-sm {
+		  margin: 0 0.5rem;
+		  padding: 0;
+		  position: relative;
+		  border: none;
+		  height: 1.5rem;
+		  width: 3rem;
+		  border-radius: 1.5rem;
+		}
+		.btn-toggle.btn-sm:focus,
+		.btn-toggle.btn-sm.focus,
+		.btn-toggle.btn-sm:focus.active,
+		.btn-toggle.btn-sm.focus.active {
+		  outline: none;
+		}
+		.btn-toggle.btn-sm:before,
+		.btn-toggle.btn-sm:after {
+		  line-height: 1.5rem;
+		  width: 0.5rem;
+		  text-align: center;
+		  font-weight: 600;
+		  font-size: 0.55rem;
+		  text-transform: uppercase;
+		  letter-spacing: 2px;
+		  position: absolute;
+		  bottom: 0;
+		  transition: opacity 0.25s;
+		}
+		.btn-toggle.btn-sm:before {
+		  content: 'Off';
+		  left: -0.5rem;
+		}
+		.btn-toggle.btn-sm:after {
+		  content: 'On';
+		  right: -0.5rem;
+		  opacity: 0.5;
+		}
+		.btn-toggle.btn-sm > .handle {
+		  position: absolute;
+		  top: 0.1875rem;
+		  left: 0.1875rem;
+		  width: 1.125rem;
+		  height: 1.125rem;
+		  border-radius: 1.125rem;
+		  background: #fff;
+		  transition: left 0.25s;
+		}
+		.btn-toggle.btn-sm.active {
+		  transition: background-color 0.25s;
+		}
+		.btn-toggle.btn-sm.active > .handle {
+		  left: 1.6875rem;
+		  transition: left 0.25s;
+		}
+		.btn-toggle.btn-sm.active:before {
+		  opacity: 0.5;
+		}
+		.btn-toggle.btn-sm.active:after {
+		  opacity: 1;
+		}
+		.btn-toggle.btn-sm.btn-sm:before,
+		.btn-toggle.btn-sm.btn-sm:after {
+		  line-height: -0.5rem;
+		  color: #fff;
+		  letter-spacing: 0.75px;
+		  left: 0.4125rem;
+		  width: 2.325rem;
+		}
+		.btn-toggle.btn-sm.btn-sm:before {
+		  text-align: right;
+		}
+		.btn-toggle.btn-sm.btn-sm:after {
+		  text-align: left;
+		  opacity: 0;
+		}
+		.btn-toggle.btn-sm.btn-sm.active:before {
+		  opacity: 0;
+		}
+		.btn-toggle.btn-sm.btn-sm.active:after {
+		  opacity: 1;
+		}
+		.btn-toggle.btn-sm.btn-xs:before,
+		.btn-toggle.btn-sm.btn-xs:after {
+		  display: none;
+		}
+		.btn-toggle.btn-xs {
+		  margin: 0 0;
+		  padding: 0;
+		  position: relative;
+		  border: none;
+		  height: 1rem;
+		  width: 2rem;
+		  border-radius: 1rem;
+		}
+		.btn-toggle.btn-xs:focus,
+		.btn-toggle.btn-xs.focus,
+		.btn-toggle.btn-xs:focus.active,
+		.btn-toggle.btn-xs.focus.active {
+		  outline: none;
+		}
+		.btn-toggle.btn-xs:before,
+		.btn-toggle.btn-xs:after {
+		  line-height: 1rem;
+		  width: 0;
+		  text-align: center;
+		  font-weight: 600;
+		  font-size: 0.75rem;
+		  text-transform: uppercase;
+		  letter-spacing: 2px;
+		  position: absolute;
+		  bottom: 0;
+		  transition: opacity 0.25s;
+		}
+		.btn-toggle.btn-xs:before {
+		  content: 'Off';
+		  left: 0;
+		}
+		.btn-toggle.btn-xs:after {
+		  content: 'On';
+		  right: 0;
+		  opacity: 0.5;
+		}
+		.btn-toggle.btn-xs > .handle {
+		  position: absolute;
+		  top: 0.125rem;
+		  left: 0.125rem;
+		  width: 0.75rem;
+		  height: 0.75rem;
+		  border-radius: 0.75rem;
+		  background: #fff;
+		  transition: left 0.25s;
+		}
+		.btn-toggle.btn-xs.active {
+		  transition: background-color 0.25s;
+		}
+		.btn-toggle.btn-xs.active > .handle {
+		  left: 1.125rem;
+		  transition: left 0.25s;
+		}
+		.btn-toggle.btn-xs.active:before {
+		  opacity: 0.5;
+		}
+		.btn-toggle.btn-xs.active:after {
+		  opacity: 1;
+		}
+		.btn-toggle.btn-xs.btn-sm:before,
+		.btn-toggle.btn-xs.btn-sm:after {
+		  line-height: -1rem;
+		  color: #fff;
+		  letter-spacing: 0.75px;
+		  left: 0.275rem;
+		  width: 1.55rem;
+		}
+		.btn-toggle.btn-xs.btn-sm:before {
+		  text-align: right;
+		}
+		.btn-toggle.btn-xs.btn-sm:after {
+		  text-align: left;
+		  opacity: 0;
+		}
+		.btn-toggle.btn-xs.btn-sm.active:before {
+		  opacity: 0;
+		}
+		.btn-toggle.btn-xs.btn-sm.active:after {
+		  opacity: 1;
+		}
+		.btn-toggle.btn-xs.btn-xs:before,
+		.btn-toggle.btn-xs.btn-xs:after {
+		  display: none;
+		}
+		.btn-toggle.btn-secondary {
+		  color: #6b7381;
+		  background: #bdc1c8;
+		}
+		.btn-toggle.btn-secondary:before,
+		.btn-toggle.btn-secondary:after {
+		  color: #6b7381;
+		}
+		.btn-toggle.btn-secondary.active {
+		  background-color: #a8c02a;
+		}
+		</style>
+		<style>
+		.button_predict {
+		  display: inline-block;
+		  border-radius: 4px;
+		  background-color: #a8c02a;
+		  border: none;
+		  color: #FFFFFF;
+		  text-align: center;
+		  font-size: 15px;
+		  padding: 5px;
+		  width: 120px;
+		  transition: all 0.5s;
+		  cursor: pointer;
+		  margin: 5px;
+		}
+
+		.button_predict span {
+		  cursor: pointer;
+		  display: inline-block;
+		  position: relative;
+		  transition: 0.5s;
+		}
+
+		.button_predict span:after {
+		  content: '\00bb';
+		  position: absolute;
+		  opacity: 0;
+		  top: 0;
+		  right: -20px;
+		  transition: 0.5s;
+		}
+
+		.button_predict:hover span {
+		  padding-right: 25px;
+		}
+
+		.button_predict:hover span:after {
+		  opacity: 1;
+		  right: 0;
+		}
+		</style>
+		<style>
+		.loader {
+			  border: 16px solid #f3f3f3;
+			  border-radius: 50%;
+			  border-top: 16px solid #3498db;
+			  width: 100px;
+			  height: 100px;
+			  float: left;
+			  -webkit-animation: spin 2s linear infinite; /* Safari */
+			  animation: spin 2s linear infinite;
+			}
+
+			/* Safari */
+			@-webkit-keyframes spin {
+			  0% { -webkit-transform: rotate(0deg); }
+			  100% { -webkit-transform: rotate(360deg); }
+			}
+
+			@keyframes spin {
+			  0% { transform: rotate(0deg); }
+			  100% { transform: rotate(360deg); }
+			}
+			@-webkit-keyframes blink {
+				0% {
+					opacity: 1;
+				}
+				50% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			@-moz-keyframes blink {
+				0% {
+					opacity: 1;
+				}
+				50% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			@-o-keyframes blink {
+				0% {
+					opacity: 1;
+				}
+				50% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			img.blink {
+				-webkit-animation: blink 1s;
+				-webkit-animation-iteration-count: infinite;
+				-moz-animation: blink 1s;
+				-moz-animation-iteration-count: infinite;
+				-o-animation: blink 1s;
+				-o-animation-iteration-count: infinite;
+				height : 35px;
+			}
+			</style>
+		<script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script data-require="bootstrap@*" data-semver="3.1.1" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link data-require="bootstrap-css@3.1.1" data-semver="3.1.1" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+    
+		
+    </head>
+    <body oncontextmenu="if (!window.__cfRLUnblockHandlers) return false; return false;" data-cf-modified-f4a2ebef2e98f37d52a0ad8f-="" style="background-color:#06121e;">
+        <!-- Preloader -->
+        <div id="preloader">
+            <img class="logo" src="{% static 'images/logo1.png' %}" alt="" width="119" height="58">
+            <div id="status">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <!-- Style -->
+        <style>
+            @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+            .slider .social-link {
+            margin-right: 100px;
+            }
+            .movie-items .slick-slider {
+            margin-left: 0px;
+            margin-right: 100px;
+            }
+            }
+            .overlayer {
+            background-color: rgba(1, 1, 1, 0.7);
+            bottom: 0;
+            left: 0;
+            position: fixed;
+            right: 0;
+            top: 0;
+            }
+			
+			#loading-div-background{
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 10000;
+			}
+
+			#loading-div{
+				width: 300px;
+				height: 150px;
+				border: 5px solid #1468b3;
+				text-align: center;
+				color: #202020;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				background: #fff;
+				margin-left: -150px;
+				margin-top: -100px;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+				z-index: 10000;
+				behavior: url("/css/pie/PIE.htc"); /* HANDLES IE */
+			}
+        </style>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+</script>
+    <script src="jquery.firstVisitPopup.js"></script>
+    <script>
+        $(function () {
+            $('#my-welcome-message').firstVisitPopup({
+                cookieName: 'homepag1e',
+                showAgainSelector: '#show-message'
+            });
+        });
+    </script>
+	
+	
+	
+        <!-- Pop Up warn all --
+            <div id = "warnAll" title = "Notice" hidden = "hidden"> Hello! How are you? <br> <br> Description here! <br> <i> #OK </ i> </ div>          -->
+        <!-- NAVBAR -->
+        <header class="ht-header">
+            <div class="container">
+                <nav class="navbar navbar-default navbar-custom">
+                    <div class="navbar-header logo">
+                        <div class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Hide navigation</span>
+                            <div id="nav-icon1">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <a href="./"><img class="logo" id="logo" src="{% static 'images/logo1.png' %}" alt="" width="119" height="58"></a>
+                    </div>
+                    <div class="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav flex-child-menu menu-left">
+                            <li class="hidden">
+                                <a href="#page-top"></a>
+                            </li>
+                            <li><a href="./">Home</a></li>
+							<li><a target="_blank" href="https://www.ldv.ei.tum.de/en/homepage/">LDV</a></li>
+							<li><a target="_blank" href="https://www.tum.de/nc/en/">TUM</a></li>
+							
+                        </ul>
+                    </div>
+                </nav>
+				<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+				<script type="text/javascript">
+				var submit;
+				function Clicked(button)
+				{
+				  submit= button ;
+				}
+				function getUrlVars() {
+					var vars = {};
+					var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+						vars[key] = value;
+					});
+					return vars;
+				}
+				function youtube_parser(url){
+					var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+					var match = url.match(regExp);
+					return (match&&match[7].length==11)? match[7] : false;
+				}
+				$(function() {
+				 
+				  $('#search_form').submit(function(event) {
+					if (submit.name == "speechButn") {
+					document.getElementById("speech_loader").style.display = "inline";
+					document.getElementById("speech_loader_text").innerHTML = "listening...&nbsp;&nbsp"; 
+					document.getElementById("speech_loader_text").style.display = "inline";
+					}
+					// You gotta include the csrf_token in your post data
+					event.preventDefault();
+					$.ajax({
+						type: 'POST',
+						url: '{% url 'query' %}',
+						dataType: 'json',
+						data: $('#search_form').serialize()+ '&button=' + submit.name, // serialize all your 
+						success: function (data, textStatus) {
+							//alert(JSON.stringify(data), textStatus);
+							//$('#search_input').html("");
+							//submit.value
+							// call search page
+							if(JSON.stringify(data).substr(1).slice(0, -1) === 'callSearchPage'){
+								if (document.getElementById("search_input").value.includes("youtube.com"))
+									window.open('{% url 'trailer' %}?v='.concat(youtube_parser(document.getElementById("search_input").value)),"_self");
+								else if (isNaN(document.getElementById("search_input").value))
+									window.open('{% url 'search' %}?title='.concat(document.getElementById("search_input").value),"_self");
+								else
+									window.open('{% url 'movie' %}?id='.concat(document.getElementById("search_input").value),"_self");
+							}
+							else if (JSON.stringify(data).substr(1).slice(0, -1) === '-timeout-'){
+								document.getElementById("speech_loader_text").innerHTML = "Timeout error!&nbsp;&nbsp"; 
+							}
+							else if (JSON.stringify(data).substr(1).slice(0, -1) === '-recognition_failed-'){
+								document.getElementById("speech_loader_text").innerHTML = "Failed to recognize!&nbsp;&nbsp"; 
+							}
+							else {
+								document.getElementById("search_input").value = JSON.stringify(data).substr(1).slice(0, -1);
+								document.getElementById("speech_loader_text").style.display = "none";
+							}
+							document.getElementById("speech_loader").style.display = "none";
+						},
+						//error: function(xhr, status, e) {
+						//	alert(status, e);
+						//}
+						
+					});
+				  });
+
+				});
+				
+				
+				$(function() {
+				 
+				  $('#predict_form').submit(function(event) {
+					if (submit.name == "speechButn") {
+					document.getElementById("speech_loader").style.display = "inline";
+					document.getElementById("speech_loader_text").innerHTML = "listening...&nbsp;&nbsp"; 
+					document.getElementById("speech_loader_text").style.display = "inline";
+					}
+					// You gotta include the csrf_token in your post data
+					event.preventDefault();
+					$.ajax({
+						type: 'POST',
+						url: '{% url 'query' %}',
+						dataType: 'json',
+						data: $('#search_form').serialize()+ '&button=' + submit.name, // serialize all your 
+						success: function (data, textStatus) {
+							//alert(JSON.stringify(data), textStatus);
+							//$('#search_input').html("");
+							//submit.value
+							// call search page
+							if(JSON.stringify(data).substr(1).slice(0, -1) === 'callSearchPage'){
+								if (document.getElementById("search_input").value.includes("youtube.com"))
+									window.open('{% url 'trailer' %}?v='.concat(youtube_parser(document.getElementById("search_input").value)),"_self");
+								else if (isNaN(document.getElementById("search_input").value))
+									window.open('{% url 'search' %}?title='.concat(document.getElementById("search_input").value),"_self");
+								else
+									window.open('{% url 'movie' %}?id='.concat(document.getElementById("search_input").value),"_self");
+							}
+							else if (JSON.stringify(data).substr(1).slice(0, -1) === '-timeout-'){
+								document.getElementById("speech_loader_text").innerHTML = "Timeout error!&nbsp;&nbsp"; 
+							}
+							else if (JSON.stringify(data).substr(1).slice(0, -1) === '-recognition_failed-'){
+								document.getElementById("speech_loader_text").innerHTML = "Failed to recognize!&nbsp;&nbsp"; 
+							}
+							else {
+								document.getElementById("search_input").value = JSON.stringify(data).substr(1).slice(0, -1);
+								document.getElementById("speech_loader_text").style.display = "none";
+							}
+							document.getElementById("speech_loader").style.display = "none";
+						},
+						//error: function(xhr, status, e) {
+						//	alert(status, e);
+						//}
+						
+					});
+				  });
+
+				});
+				
+				</script>
+				<form class="search" id="search_form" method="post">
+				{% csrf_token %}
+				<div class="top-search" id="search" name="search">
+					<input type="text" name="search_field" value="" size="50"  id="search_input" pattern=".{3,100}" placeholder="Search for movies"/>
+					<!--<div id ="search_loader_text" style="background-color:#243a51; height: 46px;  padding-top: 12px; color : #FFF; display : none; "> searching...&nbsp;&nbsp; </div>
+					<div id ="search_loader" style="background-color:#243a51; height: 46px;  padding-top: 6px; display : none;">
+					<div class="loader"> </div>
+					</div>-->
+					<div id ="speech_loader_text" style="background-color:#243a51; height: 46px;  width: 200px; padding-top: 12px; color : #FFF; display : none; text-align: right;"> </div>
+					<div id ="speech_loader" style="background-color:#243a51; height: 46px;  padding-top: 6px; display : none;">
+					<img class="blink" src="{% static 'images/listen.png' %}" height="46" />
+					</div>
+
+					<button onclick="Clicked(this);" name="searchButn" style="height:46px; width:50px;" type="submit" name="searchBtn"><img src="{% static 'images/search.png' %}" width="20" height="20" alt="submit"></button>
+					<button onclick="Clicked(this);" style="height:46px; width:50px;" name="speechButn" type="submit"><img src="{% static 'images/speech.png' %}" width="20" height="20" alt="listen"></button>
+				</div>
+				</form>
+				
+				<div id="res_prediction"></div>
+<!-- Movie items -->
+            </div>
+        </header>
+        <!-- Content -->
+		
+        {% block content %}{% endblock %}
+		
+		<div id="predict_loading" style="position: fixed; left:50%; top: 50%; transform: translate(-50%, -50%); border-radius: 25px; width: 650px; background: #06121e; height: 650px; z-index:1000000; opacity: 0.95; display: none">
+		<center><div style="position: relative;left:0px; top: 25px ; z-index:100; color: #FFF; width : 120px"> predicting ...</div><canvas id="c" width="600" height="600"></canvas></center></div>
+        <!-- Footer -->
+        <footer class="ht-footer">
+            <div class="container">
+                <div class="flex-parent-ft">
+                    <div class="flex-child-ft item1">
+                        <a href="./"><img class="logo" src="{% static 'images/logo1.png' %}" alt=""></a>
+                        <p>Munich, Germany</p>
+                    </div>
+					<div class="flex-child-ft item2"><img class="logo" src="{% static 'images/tum_logo.png' %}" alt="" width="190"><p>Technische Universität München</p></div>
+					<div class="flex-child-ft item4"><img class="logo" src="{% static 'images/ei_logo.png' %}" width="100" ><p>Fakultät für Elektro- <br> und Informationstechnik</p></div>
+					<div class="flex-child-ft item3"><img class="logo" src="{% static 'images/ldv_logo.png' %}" width="100"> <p>Lehrstuhl für Datenverarbeitung</p></div>
+					
+                    <!--<div class="flex-child-ft item3">
+                        <h4>Deep Learning</h4>
+                        <ul>
+                            <li><a href="deep-learning/index.html">Neural Network</a></li>
+                            <li><a href="deep-learning/video-trailer.html">Prediction Based on Movie Trailers</a></li>
+                            <li><a href="deep-learning/meta-inforamtion.html">Prediction Based on Movie Meta-Information</a></li>
+                            <li class="it-last"><a href="deep-learning/video-trailer-meta-inforamtion.html">Prediction Based on Movie Tailers and Meta-Information</a></li>
+                        </ul>
+                    </div>-->
+                    <div class="flex-child-ft item5">
+                        <h4>About us</h4>
+                        <ul>
+                            
+                            <li><a href="https://www.ldv.ei.tum.de/" target="_blank">LDV</a></li>
+                            <li><a href="https://tum.de/" target="_blank">TUM</a></li>
+							<li><a href="https://www.ei.tum.de/en/welcome/" target="_blank">EI</a></li>
+                        </ul>
+                    </div>
+					<div class="flex-child-ft item6"></div>
+                    <!--<div class="flex-child-ft item5">
+                        <h4>Newsletter</h4>
+                        <p>Subscribe to our system to receive the first news!</p>
+                        <form action="https://TUMoviesDL.tv/#/" onkeypress="if (!window.__cfRLUnblockHandlers) return false; return event.keyCode != 13;" id="subscribe-form" name="subscribe-form" data-cf-modified-1aa5f3e70e21ec31eb84c186-="">
+                            <input type="email" name="emailSub" id="emailSub" placeholder="Enter your email address ...">
+                        </form>
+                        <a type="submit" href="#/" class="btn" id="subscribe" name="subscribe">Subscribe <i class="ion-ios-arrow-forward"></i></a>
+                        <div id="subs"></div>
+                    </div>-->
+                </div>
+                <p style="text-align: center;">A neural-network-based platform which estimates the opening weekend revenue of a movie based on its video trailer and/or meta-information (such as studio, cast, director etc).</p>
+                <br>
+            </div>
+            <div class="ft-copyright">
+                <div class="ft-left">
+                    <p>&copy; {{ year }} TUMoviesDL. All rights reserved.</p>
+                </div>
+                <div class="backtotop">
+                    <p><a href="#" id="back-to-top"><font color="#b63b4d">Back to the top</font><i class="ion-ios-arrow-thin-up"></i></a></p>
+                </div>
+            </div>
+        </footer>
+        <!-- Body Scripts -->
+		<style class="cp-pen-styles">canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+}</style>
+
+<script id="rendered-js">
+c.style.position = "relative";
+          var w = c.width,
+h = c.height,
+ctx = c.getContext('2d'),
+opts = {
+
+  range: 180,
+  baseConnections: 10,
+  addedConnections: 5,
+  baseSize: 5,
+  minSize: 1,
+  dataToConnectionSize: .4,
+  sizeMultiplier: .7,
+  allowedDist: 40,
+  baseDist: 40,
+  addedDist: 30,
+  connectionAttempts: 100,
+
+  dataToConnections: 1,
+  baseSpeed: .04,
+  addedSpeed: .05,
+  baseGlowSpeed: .4,
+  addedGlowSpeed: .4,
+
+  rotVelX: .003,
+  rotVelY: .002,
+
+  repaintColor: '#06121e',
+  connectionColor: 'hsla(200,60%,light%,alp)',
+  rootColor: 'hsla(0,60%,light%,alp)',
+  endColor: 'hsla(160,20%,light%,alp)',
+  dataColor: 'hsla(40,80%,light%,alp)',
+
+  wireframeWidth: .1,
+  wireframeColor: '#88f',
+
+  depth: 250,
+  focalLength: 250,
+  vanishPoint: {
+    x: w / 2,
+    y: h / 2 } },
+
+
+
+squareRange = opts.range * opts.range,
+squareAllowed = opts.allowedDist * opts.allowedDist,
+mostDistant = opts.depth + opts.range,
+sinX = sinY = 0,
+cosX = cosY = 0,
+
+connections = [],
+toDevelop = [],
+data = [],
+all = [],
+tick = 0,
+totalProb = 0,
+
+animating = false,
+
+Tau = Math.PI * 2;
+
+ctx.fillStyle = '#222';
+ctx.fillRect(0, 0, w, h);
+ctx.fillStyle = '#ccc';
+ctx.font = '50px Verdana';
+ctx.fillText('Calculating Nodes', w / 2 - ctx.measureText('Calculating Nodes').width / 2, h / 2 - 15);
+
+window.setTimeout(init, 4); // to render the loading screen
+
+function init() {
+
+  connections.length = 0;
+  data.length = 0;
+  all.length = 0;
+  toDevelop.length = 0;
+
+  var connection = new Connection(0, 0, 0, opts.baseSize);
+  connection.step = Connection.rootStep;
+  connections.push(connection);
+  all.push(connection);
+  connection.link();
+
+  while (toDevelop.length > 0) {
+
+    toDevelop[0].link();
+    toDevelop.shift();
+  }
+
+  if (!animating) {
+    animating = true;
+    anim();
+  }
+}
+function Connection(x, y, z, size) {
+
+  this.x = x;
+  this.y = y;
+  this.z = z;
+  this.size = size;
+
+  this.screen = {};
+
+  this.links = [];
+  this.probabilities = [];
+  this.isEnd = false;
+
+  this.glowSpeed = opts.baseGlowSpeed + opts.addedGlowSpeed * Math.random();
+}
+Connection.prototype.link = function () {
+
+  if (this.size < opts.minSize)
+  return this.isEnd = true;
+
+  var links = [],
+  connectionsNum = opts.baseConnections + Math.random() * opts.addedConnections | 0,
+  attempt = opts.connectionAttempts,
+
+  alpha,beta,len,
+  cosA,sinA,cosB,sinB,
+  pos = {},
+  passedExisting,passedBuffered;
+
+  while (links.length < connectionsNum && --attempt > 0) {
+
+    alpha = Math.random() * Math.PI;
+    beta = Math.random() * Tau;
+    len = opts.baseDist + opts.addedDist * Math.random();
+
+    cosA = Math.cos(alpha);
+    sinA = Math.sin(alpha);
+    cosB = Math.cos(beta);
+    sinB = Math.sin(beta);
+
+    pos.x = this.x + len * cosA * sinB;
+    pos.y = this.y + len * sinA * sinB;
+    pos.z = this.z + len * cosB;
+
+    if (pos.x * pos.x + pos.y * pos.y + pos.z * pos.z < squareRange) {
+
+      passedExisting = true;
+      passedBuffered = true;
+      for (var i = 0; i < connections.length; ++i)
+      if (squareDist(pos, connections[i]) < squareAllowed)
+      passedExisting = false;
+
+      if (passedExisting)
+      for (var i = 0; i < links.length; ++i)
+      if (squareDist(pos, links[i]) < squareAllowed)
+      passedBuffered = false;
+
+      if (passedExisting && passedBuffered)
+      links.push({ x: pos.x, y: pos.y, z: pos.z });
+
+    }
+
+  }
+
+  if (links.length === 0)
+  this.isEnd = true;else
+  {
+    for (var i = 0; i < links.length; ++i) {
+
+      var pos = links[i],
+      connection = new Connection(pos.x, pos.y, pos.z, this.size * opts.sizeMultiplier);
+
+      this.links[i] = connection;
+      all.push(connection);
+      connections.push(connection);
+    }
+    for (var i = 0; i < this.links.length; ++i)
+    toDevelop.push(this.links[i]);
+  }
+};
+Connection.prototype.step = function () {
+
+  this.setScreen();
+  this.screen.color = (this.isEnd ? opts.endColor : opts.connectionColor).replace('light', 30 + tick * this.glowSpeed % 30).replace('alp', .2 + (1 - this.screen.z / mostDistant) * .8);
+
+  for (var i = 0; i < this.links.length; ++i) {
+    ctx.moveTo(this.screen.x, this.screen.y);
+    ctx.lineTo(this.links[i].screen.x, this.links[i].screen.y);
+  }
+};
+Connection.rootStep = function () {
+  this.setScreen();
+  this.screen.color = opts.rootColor.replace('light', 30 + tick * this.glowSpeed % 30).replace('alp', (1 - this.screen.z / mostDistant) * .8);
+
+  for (var i = 0; i < this.links.length; ++i) {
+    ctx.moveTo(this.screen.x, this.screen.y);
+    ctx.lineTo(this.links[i].screen.x, this.links[i].screen.y);
+  }
+};
+Connection.prototype.draw = function () {
+  ctx.fillStyle = this.screen.color;
+  ctx.beginPath();
+  ctx.arc(this.screen.x, this.screen.y, this.screen.scale * this.size, 0, Tau);
+  ctx.fill();
+};
+function Data(connection) {
+
+  this.glowSpeed = opts.baseGlowSpeed + opts.addedGlowSpeed * Math.random();
+  this.speed = opts.baseSpeed + opts.addedSpeed * Math.random();
+
+  this.screen = {};
+
+  this.setConnection(connection);
+}
+Data.prototype.reset = function () {
+
+  this.setConnection(connections[0]);
+  this.ended = 2;
+};
+Data.prototype.step = function () {
+
+  this.proportion += this.speed;
+
+  if (this.proportion < 1) {
+    this.x = this.ox + this.dx * this.proportion;
+    this.y = this.oy + this.dy * this.proportion;
+    this.z = this.oz + this.dz * this.proportion;
+    this.size = (this.os + this.ds * this.proportion) * opts.dataToConnectionSize;
+  } else
+  this.setConnection(this.nextConnection);
+
+  this.screen.lastX = this.screen.x;
+  this.screen.lastY = this.screen.y;
+  this.setScreen();
+  this.screen.color = opts.dataColor.replace('light', 40 + tick * this.glowSpeed % 50).replace('alp', .2 + (1 - this.screen.z / mostDistant) * .6);
+
+};
+Data.prototype.draw = function () {
+
+  if (this.ended)
+  return --this.ended; // not sre why the thing lasts 2 frames, but it does
+
+  ctx.beginPath();
+  ctx.strokeStyle = this.screen.color;
+  ctx.lineWidth = this.size * this.screen.scale;
+  ctx.moveTo(this.screen.lastX, this.screen.lastY);
+  ctx.lineTo(this.screen.x, this.screen.y);
+  ctx.stroke();
+};
+Data.prototype.setConnection = function (connection) {
+
+  if (connection.isEnd)
+  this.reset();else
+
+  {
+    this.connection = connection;
+    this.nextConnection = connection.links[connection.links.length * Math.random() | 0];
+
+    this.ox = connection.x; // original coordinates
+    this.oy = connection.y;
+    this.oz = connection.z;
+    this.os = connection.size; // base size
+
+    this.nx = this.nextConnection.x; // new
+    this.ny = this.nextConnection.y;
+    this.nz = this.nextConnection.z;
+    this.ns = this.nextConnection.size;
+
+    this.dx = this.nx - this.ox; // delta
+    this.dy = this.ny - this.oy;
+    this.dz = this.nz - this.oz;
+    this.ds = this.ns - this.os;
+
+    this.proportion = 0;
+  }
+};
+Connection.prototype.setScreen = Data.prototype.setScreen = function () {
+
+  var x = this.x,
+  y = this.y,
+  z = this.z;
+
+  // apply rotation on X axis
+  var Y = y;
+  y = y * cosX - z * sinX;
+  z = z * cosX + Y * sinX;
+
+  // rot on Y
+  var Z = z;
+  z = z * cosY - x * sinY;
+  x = x * cosY + Z * sinY;
+
+  this.screen.z = z;
+
+  // translate on Z
+  z += opts.depth;
+
+  this.screen.scale = opts.focalLength / z;
+  this.screen.x = opts.vanishPoint.x + x * this.screen.scale;
+  this.screen.y = opts.vanishPoint.y + y * this.screen.scale;
+
+};
+function squareDist(a, b) {
+
+  var x = b.x - a.x,
+  y = b.y - a.y,
+  z = b.z - a.z;
+
+  return x * x + y * y + z * z;
+}
+
+function anim() {
+
+  window.requestAnimationFrame(anim);
+
+  ctx.globalCompositeOperation = 'source-over';
+  ctx.fillStyle = opts.repaintColor;
+  ctx.fillRect(0, 0, w, h);
+
+  ++tick;
+
+  var rotX = tick * opts.rotVelX,
+  rotY = tick * opts.rotVelY;
+
+  cosX = Math.cos(rotX);
+  sinX = Math.sin(rotX);
+  cosY = Math.cos(rotY);
+  sinY = Math.sin(rotY);
+
+  if (data.length < connections.length * opts.dataToConnections) {
+    var datum = new Data(connections[0]);
+    data.push(datum);
+    all.push(datum);
+  }
+
+  ctx.globalCompositeOperation = 'lighter';
+  ctx.beginPath();
+  ctx.lineWidth = opts.wireframeWidth;
+  ctx.strokeStyle = opts.wireframeColor;
+  all.map(function (item) {item.step();});
+  ctx.stroke();
+  ctx.globalCompositeOperation = 'source-over';
+  all.sort(function (a, b) {return b.screen.z - a.screen.z;});
+  all.map(function (item) {item.draw();});
+}
+
+//window.addEventListener('click', init);
+</script>
+        <script src="{% static 'scripts/jquery.js' %}" type="1aa5f3e70e21ec31eb84c186-text/javascript"></script>
+        <script data-cfasync="false" id="clevernt" type="text/javascript">
+            var M = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
+            if (!M) {
+                (function (document, window) {
+                var c = document.createElement("script");
+                c.type = "text/javascript"; c.async = !0; c.id = "CleverNTLoader32571";  c.setAttribute("data-target",window.name); c.setAttribute("data-callback","put-your-callback-macro-here");
+                c.src = "http://clevernt.com/scripts/d05299718ea45f69dd1c0345a02063af.min987a.js?20190519=" + Math.floor((new Date).getTime());
+                var a = !1;
+                try {
+                a = parent.document.getElementsByTagName("script")[0] || document.getElementsByTagName("script")[0];
+                } catch (e) {
+                a = !1;
+                }
+                a || ( a = document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]);
+                a.parentNode.insertBefore(c, a);
+                })(document, window);
+            }
+        </script>
+        <script src="{% static 'scripts/marquee.js' %}" type="1aa5f3e70e21ec31eb84c186-text/javascript"></script>
+        <script src="{% static 'scripts/plugins.js' %}" type="1aa5f3e70e21ec31eb84c186-text/javascript"></script>
+        <script src="{% static 'scripts/plugins2.js' %}" type="1aa5f3e70e21ec31eb84c186-text/javascript"></script>
+        <script src="{% static 'scripts/custom.js' %}" type="1aa5f3e70e21ec31eb84c186-text/javascript"></script>
+        <script src="{% static 'scripts/stuff.js' %}" type="1aa5f3e70e21ec31eb84c186-text/javascript"></script>
+        <script type="1aa5f3e70e21ec31eb84c186-text/javascript">
+            var _0xc5a1=['YXBwbHk=','XCtcKyAqKD86XzB4KD86W2EtZjAtOV0pezQsNn18KD86XGJ8XGQpW2EtejAtOV17MSw0fSg/OlxifFxkKSk=','aW5pdA==','dGVzdA==','cmV0dXJuIChmdW5jdGlvbigpIA==','Y29uc29sZQ==','bG9n','d2Fybg==','ZGVidWc=','ZXJyb3I=','ZXhjZXB0aW9u','dHJhY2U=','aW5mbw==','cmVhZHk=','I3ByZWxvYWRlcjp2aXNpYmxl','bGVuZ3Ro','I3RyYWlsZXIw','YXR0cg==','c3Jj','bGluaw==','I3RyYWlsZXI0','I3RyYWlsZXI1','I3RyYWlsZXI2','I3RyYWlsZXI3','I3RyYWlsZXI4','I3RyYWlsZXI5','ZXhlYw==','L21xZGVmYXVsdC5qcGc=','dGV4dA==','bmFtZQ==','I3RyYWlsZXIwYQ==','YW5v','I3RyYWlsZXIwaQ==','aHR0cHM6Ly9pbWcueW91dHViZS5jb20vdmkv','I3RyYWlsZXIxbg==','I3RyYWlsZXIxYQ==','I3RyYWlsZXIxaQ==','I3RyYWlsZXIybg==','I3RyYWlsZXIyaQ==','I3RyYWlsZXIzbg==','I3RyYWlsZXIzaQ==','I3RyYWlsZXI0bg==','I3RyYWlsZXI0YQ==','I3RyYWlsZXI0aQ==','I3RyYWlsZXI1bg==','I3RyYWlsZXI1YQ==','I3RyYWlsZXI1aQ==','I3RyYWlsZXI2YQ==','I3RyYWlsZXI2aQ==','I3RyYWlsZXI3bg==','I3RyYWlsZXI3YQ==','I3RyYWlsZXI3aQ==','I3RyYWlsZXI4bg==','I3RyYWlsZXI4YQ==','I3RyYWlsZXI5bg==','I3RyYWlsZXI5YQ==','d2Fybk1lOTkw','I3dhcm5BbGw=','YXV0bw==','ZGlhbG9n','Y2xvc2U=','c2libGluZ3M=','LnVpLWRpYWxvZy1idXR0b25wYW5l','ZmluZA==','Zm9jdXM=','YnV0dG9uOmNvbnRhaW5zKCdGZWNoYXInKQ==','JCgnI3dhcm5BbGwnKS5kaWFsb2coJ2Nsb3NlJyk=','a2V5Q29kZQ==','Y3RybEtleQ==','c2hpZnRLZXk=','Y2hhckNvZGVBdA==','I3N1Ym1pdA==','Y2xpY2s=','YWpheA==','PGZvbnQgY29sb3I9J2dyZWVuJz5TdWNlc3NvOiBMb2dpbiBlZmV0dWFkbyEhIHJlZGlyZWNpb25hbmRvLi4uPC9mb250Pg==','c3VibWl0','ZGlzYWJsZWQ=','Z2V0RWxlbWVudEJ5SWQ=','aW5uZXJIVE1M','PC9mb250PjwvbGFiZWw+PC9kaXY+PC9kaXY+','cmVzZXQ=','bG9jYXRpb24=','aHJlZg==','YWEv','PGZvbnQgY29sb3I9J2dyZWVuJz5TdWNlc3NvOiBMb2dpbiBlZmV0dWFkbyEgcmVkaXJlY2lvbmFuZG8uLi48L2ZvbnQ+','I2xvZ2lu','c2V0VGltZQ==','Z2V0VGltZQ==','OyBleHBpcmVzPQ==','dG9VVENTdHJpbmc=','Y29va2ll','OyBwYXRoPS8=','c3Vic3RyaW5n','aW5kZXhPZg==','PTsgTWF4LUFnZT0tOTk5OTk5OTk7','d2lkdGg=','Z2V0U2NyaXB0','Ly93dXJmbC5pby93dXJmbC5qcw==','c3RhdHVz','bW9iaWxlY2hlY2s=','c3Vic3Ry','dXNlckFnZW50','dmVuZG9y','b3BlcmE=','b25sb2Fk','Lm1vdmllLWl0ZW0=','Lm12LWltZw==','aGVpZ2h0','Zm9ybV9mYWN0b3I=','VGFibGV0','MzQwcHg=','aW5uZXJIZWlnaHQ=','aW5uZXJXaWR0aA==','Z2V0RWxlbWVudHNCeUNsYXNzTmFtZQ==','Y29udGFpbmVy','c3R5bGU=','ZGlzcGxheQ==','aW5pdGlhbA==','bm9uZQ==','bG9nbw==','NDhweA==','OTlweA==','NTBweA==','MTEwcHg=','b3JpZW50YXRpb25jaGFuZ2U=','YmluZA==','YWRkRXZlbnRMaXN0ZW5lcg==','aXNfbW9iaWxl','bXYtaXRlbS1pbmZvcg==','I21hcnF1ZWUgYQ==','aG92ZXI=','I3N1Ym1pdC0y','UE9TVA==','I3JlZ2lzdGVy','PGZvbnQgY29sb3I9J2dyZWVuJz5TdWNlc3NvOiBDb250YSBjcmlhZGEuIEVmZXR1ZSBzZXUgTG9naW4hPC9mb250Pg==','PGRpdiBjbGFzcz0icm93Ij48ZGl2IGlkPSJsb2cyIiBjbGFzcz0iZmFkZU91dCI+PGxhYmVsIGZvcj0ibG9nMiI+PGZvbnQgY29sb3I9IiI+','bG9nMg==','c2VyaWFsaXpl','PGZvbnQgY29sb3I9J2dyZWVuJz5TdWNlc3NvOiBFbWFpbCBhZGljaW9uYWRvIG5vIGJhbmNvIGRlIGRhZG9zITwvZm9udD4=','c3Vic2NyaWJl','c3Vicw==','PGRpdiBpZD0ic3VicyIgY2xhc3M9ImZhZGVPdXQiPjxsYWJlbCBmb3I9InN1YnMiPjxmb250IGNvbG9yPSIiPg==','PC9mb250PjwvbGFiZWw+PC9kaXY+','cGFyZW50Tm9kZQ==','cmVtb3ZlQ2hpbGQ=','dGFiLWxpbmtzLTI=','cmVtb3Zl','cmF0ZWQ=','cG9wdWxhcjI=','cmF0ZWQy','cmVjZW50czI=','ZGV2cw==','Y29udGV4dG1lbnU=','cHJldmVudERlZmF1bHQ=','c3RyaW5n','Y29uc3RydWN0b3I=','d2hpbGUgKHRydWUpIHt9','Y291bnRlcg==','ZGVidQ==','Z2dlcg==','YWN0aW9u'];(function(_0x546a53,_0x3f720e){var _0x440369=function(_0x2e1b64){while(--_0x2e1b64){_0x546a53['push'](_0x546a53['shift']());}};_0x440369(++_0x3f720e);}(_0xc5a1,0x1e3));var _0x3b00=function(_0x370c2a,_0x2639ba){_0x370c2a=_0x370c2a-0x0;var _0x42a9a1=_0xc5a1[_0x370c2a];if(_0x3b00['LjGVXP']===undefined){(function(){var _0x1ea0db=function(){var _0xc4c996;try{_0xc4c996=Function('return\x20(function()\x20'+'{}.constructor(\x22return\x20this\x22)(\x20)'+');')();}catch(_0x549aa6){_0xc4c996=window;}return _0xc4c996;};var _0x1520d2=_0x1ea0db();var _0x55e50c='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';_0x1520d2['atob']||(_0x1520d2['atob']=function(_0x397658){var _0x17cead=String(_0x397658)['replace'](/=+$/,'');for(var _0x8661c4=0x0,_0x7d29a3,_0x178203,_0x9c3ad6=0x0,_0x539d8c='';_0x178203=_0x17cead['charAt'](_0x9c3ad6++);~_0x178203&&(_0x7d29a3=_0x8661c4%0x4?_0x7d29a3*0x40+_0x178203:_0x178203,_0x8661c4++%0x4)?_0x539d8c+=String['fromCharCode'](0xff&_0x7d29a3>>(-0x2*_0x8661c4&0x6)):0x0){_0x178203=_0x55e50c['indexOf'](_0x178203);}return _0x539d8c;});}());_0x3b00['atVPeW']=function(_0x13f465){var _0x24535d=atob(_0x13f465);var _0x3c116e=[];for(var _0x249440=0x0,_0x2db4a2=_0x24535d['length'];_0x249440<_0x2db4a2;_0x249440++){_0x3c116e+='%'+('00'+_0x24535d['charCodeAt'](_0x249440)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x3c116e);};_0x3b00['bUJVPG']={};_0x3b00['LjGVXP']=!![];}var _0x4534a7=_0x3b00['bUJVPG'][_0x370c2a];if(_0x4534a7===undefined){_0x42a9a1=_0x3b00['atVPeW'](_0x42a9a1);_0x3b00['bUJVPG'][_0x370c2a]=_0x42a9a1;}else{_0x42a9a1=_0x4534a7;}return _0x42a9a1;};var _0x1049ed=function(){var _0x576f89=!![];return function(_0x4592e9,_0x4eadbf){var _0x213551=_0x576f89?function(){if(_0x4eadbf){var _0x13e0d2=_0x4eadbf[_0x3b00('0x0')](_0x4592e9,arguments);_0x4eadbf=null;return _0x13e0d2;}}:function(){};_0x576f89=![];return _0x213551;};}();(function(){_0x1049ed(this,function(){var _0xe40256=new RegExp('function\x20*\x5c(\x20*\x5c)');var _0xe2bfd0=new RegExp(_0x3b00('0x1'),'i');var _0x1b096f=_0x3cb4d9(_0x3b00('0x2'));if(!_0xe40256[_0x3b00('0x3')](_0x1b096f+'chain')||!_0xe2bfd0[_0x3b00('0x3')](_0x1b096f+'input')){_0x1b096f('0');}else{_0x3cb4d9();}})();}());var _0x505c01=function(){var _0x1f68cf=!![];return function(_0x2561c0,_0x541cc1){var _0x129aff=_0x1f68cf?function(){if(_0x541cc1){var _0x422047=_0x541cc1[_0x3b00('0x0')](_0x2561c0,arguments);_0x541cc1=null;return _0x422047;}}:function(){};_0x1f68cf=![];return _0x129aff;};}();var _0x44ed69=_0x505c01(this,function(){var _0x229105=function(){};var _0x43cae8=function(){var _0x4fc640;try{_0x4fc640=Function(_0x3b00('0x4')+'{}.constructor(\x22return\x20this\x22)(\x20)'+');')();}catch(_0x5bbfeb){_0x4fc640=window;}return _0x4fc640;};var _0x1c85eb=_0x43cae8();if(!_0x1c85eb[_0x3b00('0x5')]){_0x1c85eb['console']=function(_0x229105){var _0x589651={};_0x589651[_0x3b00('0x6')]=_0x229105;_0x589651[_0x3b00('0x7')]=_0x229105;_0x589651[_0x3b00('0x8')]=_0x229105;_0x589651['info']=_0x229105;_0x589651[_0x3b00('0x9')]=_0x229105;_0x589651[_0x3b00('0xa')]=_0x229105;_0x589651[_0x3b00('0xb')]=_0x229105;return _0x589651;}(_0x229105);}else{_0x1c85eb['console'][_0x3b00('0x6')]=_0x229105;_0x1c85eb[_0x3b00('0x5')][_0x3b00('0x7')]=_0x229105;_0x1c85eb[_0x3b00('0x5')][_0x3b00('0x8')]=_0x229105;_0x1c85eb[_0x3b00('0x5')][_0x3b00('0xc')]=_0x229105;_0x1c85eb[_0x3b00('0x5')]['error']=_0x229105;_0x1c85eb[_0x3b00('0x5')][_0x3b00('0xa')]=_0x229105;_0x1c85eb[_0x3b00('0x5')][_0x3b00('0xb')]=_0x229105;}});_0x44ed69();var checkAll;$(document)[_0x3b00('0xd')](function(){checkAll=setInterval(checkAll,0x1f4);});function checkAll(){if($(_0x3b00('0xe'))[_0x3b00('0xf')]==0x0){lAs=setTimeout(loadAsync,0x384);setTimeout(function(){$(_0x3b00('0x10'))[_0x3b00('0x11')](_0x3b00('0x12'),trailer[0x0][_0x3b00('0x13')]);},0x1130);setTimeout(function(){$('#trailer1')[_0x3b00('0x11')](_0x3b00('0x12'),trailer[0x1][_0x3b00('0x13')]);},0x1130);setTimeout(function(){$('#trailer2')[_0x3b00('0x11')](_0x3b00('0x12'),trailer[0x2]['link']);},0x1130);setTimeout(function(){$('#trailer3')[_0x3b00('0x11')](_0x3b00('0x12'),trailer[0x3][_0x3b00('0x13')]);},0x1130);setTimeout(function(){$(_0x3b00('0x14'))['attr'](_0x3b00('0x12'),trailer[0x4][_0x3b00('0x13')]);},0x1130);setTimeout(function(){$(_0x3b00('0x15'))[_0x3b00('0x11')](_0x3b00('0x12'),trailer[0x5][_0x3b00('0x13')]);},0x1130);setTimeout(function(){$(_0x3b00('0x16'))[_0x3b00('0x11')](_0x3b00('0x12'),trailer[0x6][_0x3b00('0x13')]);},0x1130);setTimeout(function(){$(_0x3b00('0x17'))['attr'](_0x3b00('0x12'),trailer[0x7][_0x3b00('0x13')]);},0x1130);setTimeout(function(){$(_0x3b00('0x18'))['attr'](_0x3b00('0x12'),trailer[0x8][_0x3b00('0x13')]);},0x1130);setTimeout(function(){$(_0x3b00('0x19'))[_0x3b00('0x11')]('src',trailer[0x9]['link']);},0x1130);var _0x4ad849=/[^\/]*$/[_0x3b00('0x1a')](trailer[0x0][_0x3b00('0x13')]);var _0x187007='https://img.youtube.com/vi/'+_0x4ad849+_0x3b00('0x1b');setTimeout(function(){$('#trailer0n')[_0x3b00('0x1c')](trailer[0x0][_0x3b00('0x1d')]);},0xaf0);setTimeout(function(){$(_0x3b00('0x1e'))[_0x3b00('0x1c')](trailer[0x0][_0x3b00('0x1f')]);},0xaf0);setTimeout(function(){$(_0x3b00('0x20'))[_0x3b00('0x11')](_0x3b00('0x12'),_0x187007);},0xe74);var _0x5cb37e=/[^\/]*$/[_0x3b00('0x1a')](trailer[0x1][_0x3b00('0x13')]);var _0x10736e=_0x3b00('0x21')+_0x5cb37e+_0x3b00('0x1b');setTimeout(function(){$(_0x3b00('0x22'))['text'](trailer[0x1][_0x3b00('0x1d')]);},0xaf0);setTimeout(function(){$(_0x3b00('0x23'))[_0x3b00('0x1c')](trailer[0x1][_0x3b00('0x1f')]);},0xaf0);setTimeout(function(){$(_0x3b00('0x24'))[_0x3b00('0x11')](_0x3b00('0x12'),_0x10736e);},0xe74);var _0x69febf=/[^\/]*$/[_0x3b00('0x1a')](trailer[0x2][_0x3b00('0x13')]);var _0x4186cb=_0x3b00('0x21')+_0x69febf+_0x3b00('0x1b');setTimeout(function(){$(_0x3b00('0x25'))[_0x3b00('0x1c')](trailer[0x2][_0x3b00('0x1d')]);},0xaf0);setTimeout(function(){$('#trailer2a')[_0x3b00('0x1c')](trailer[0x2][_0x3b00('0x1f')]);},0xaf0);setTimeout(function(){$(_0x3b00('0x26'))['attr'](_0x3b00('0x12'),_0x4186cb);},0xe74);var _0x1d44a9=/[^\/]*$/['exec'](trailer[0x3][_0x3b00('0x13')]);var _0x84d19d=_0x3b00('0x21')+_0x1d44a9+_0x3b00('0x1b');setTimeout(function(){$(_0x3b00('0x27'))[_0x3b00('0x1c')](trailer[0x3][_0x3b00('0x1d')]);},0xaf0);setTimeout(function(){$('#trailer3a')['text'](trailer[0x3]['ano']);},0xaf0);setTimeout(function(){$(_0x3b00('0x28'))[_0x3b00('0x11')](_0x3b00('0x12'),_0x84d19d);},0xe74);var _0xaf7178=/[^\/]*$/['exec'](trailer[0x4][_0x3b00('0x13')]);var _0x1595b2=_0x3b00('0x21')+_0xaf7178+_0x3b00('0x1b');setTimeout(function(){$(_0x3b00('0x29'))['text'](trailer[0x4]['name']);},0xaf0);setTimeout(function(){$(_0x3b00('0x2a'))[_0x3b00('0x1c')](trailer[0x4]['ano']);},0xaf0);setTimeout(function(){$(_0x3b00('0x2b'))[_0x3b00('0x11')](_0x3b00('0x12'),_0x1595b2);},0xe74);var _0x17cfcc=/[^\/]*$/['exec'](trailer[0x5]['link']);var _0x65370f=_0x3b00('0x21')+_0x17cfcc+_0x3b00('0x1b');setTimeout(function(){$(_0x3b00('0x2c'))[_0x3b00('0x1c')](trailer[0x5][_0x3b00('0x1d')]);},0xaf0);setTimeout(function(){$(_0x3b00('0x2d'))[_0x3b00('0x1c')](trailer[0x5][_0x3b00('0x1f')]);},0xaf0);setTimeout(function(){$(_0x3b00('0x2e'))[_0x3b00('0x11')](_0x3b00('0x12'),_0x65370f);},0xe74);var _0x39225c=/[^\/]*$/['exec'](trailer[0x6][_0x3b00('0x13')]);var _0x57816b=_0x3b00('0x21')+_0x39225c+'/mqdefault.jpg';setTimeout(function(){$('#trailer6n')[_0x3b00('0x1c')](trailer[0x6][_0x3b00('0x1d')]);},0xaf0);setTimeout(function(){$(_0x3b00('0x2f'))['text'](trailer[0x6][_0x3b00('0x1f')]);},0xaf0);setTimeout(function(){$(_0x3b00('0x30'))['attr'](_0x3b00('0x12'),_0x57816b);},0xe74);var _0x125c95=/[^\/]*$/[_0x3b00('0x1a')](trailer[0x7][_0x3b00('0x13')]);var _0x26b624=_0x3b00('0x21')+_0x125c95+_0x3b00('0x1b');setTimeout(function(){$(_0x3b00('0x31'))['text'](trailer[0x7]['name']);},0xaf0);setTimeout(function(){$(_0x3b00('0x32'))[_0x3b00('0x1c')](trailer[0x7]['ano']);},0xaf0);setTimeout(function(){$(_0x3b00('0x33'))[_0x3b00('0x11')]('src',_0x26b624);},0xe74);var _0x56b2b0=/[^\/]*$/[_0x3b00('0x1a')](trailer[0x8][_0x3b00('0x13')]);var _0x2d8b40=_0x3b00('0x21')+_0x56b2b0+_0x3b00('0x1b');setTimeout(function(){$(_0x3b00('0x34'))[_0x3b00('0x1c')](trailer[0x8][_0x3b00('0x1d')]);},0xaf0);setTimeout(function(){$(_0x3b00('0x35'))['text'](trailer[0x8][_0x3b00('0x1f')]);},0xaf0);setTimeout(function(){$('#trailer8i')[_0x3b00('0x11')](_0x3b00('0x12'),_0x2d8b40);},0xe74);var _0x51a7ef=/[^\/]*$/[_0x3b00('0x1a')](trailer[0x9][_0x3b00('0x13')]);var _0x177b48=_0x3b00('0x21')+_0x51a7ef+_0x3b00('0x1b');setTimeout(function(){$(_0x3b00('0x36'))[_0x3b00('0x1c')](trailer[0x9][_0x3b00('0x1d')]);},0xaf0);setTimeout(function(){$(_0x3b00('0x37'))['text'](trailer[0x9][_0x3b00('0x1f')]);},0xaf0);setTimeout(function(){$('#trailer9i')[_0x3b00('0x11')](_0x3b00('0x12'),_0x177b48);},0xe74);clearInterval(checkAll);if(getCookie(_0x3b00('0x38'))==null){if(screen['width']>0x281){$(_0x3b00('0x39'))['dialog']({'resizable':![],'height':_0x3b00('0x3a'),'width':0x334,'modal':!![],'buttons':{'Cancelar':function(){$(this)[_0x3b00('0x3b')](_0x3b00('0x3c'));}},'open':function(){$(this)[_0x3b00('0x3d')](_0x3b00('0x3e'))[_0x3b00('0x3f')]('button:contains(\x27Fechar\x27)')[_0x3b00('0x40')]();setTimeout('$(\x27#warnAll\x27).dialog(\x27close\x27)',0x13880);},'close':function(){setCookie(_0x3b00('0x38'),0x1,0x16d);}});}else{$(_0x3b00('0x39'))[_0x3b00('0x3b')]({'resizable':![],'height':0x230,'width':_0x3b00('0x3a'),'modal':!![],'buttons':{'Cancelar':function(){$(this)[_0x3b00('0x3b')]('close');}},'open':function(){$(this)[_0x3b00('0x3d')](_0x3b00('0x3e'))['find'](_0x3b00('0x41'))[_0x3b00('0x40')]();setTimeout(_0x3b00('0x42'),0x13880);},'close':function(){setCookie('warnMe990',0x1,0x16d);}});}}}}document['onkeydown']=function(_0xf00ab7){if(event[_0x3b00('0x43')]==0x7b){return![];}if(_0xf00ab7[_0x3b00('0x44')]&&_0xf00ab7[_0x3b00('0x45')]&&_0xf00ab7[_0x3b00('0x43')]=='I'[_0x3b00('0x46')](0x0)){return![];}if(_0xf00ab7[_0x3b00('0x44')]&&_0xf00ab7[_0x3b00('0x45')]&&_0xf00ab7['keyCode']=='J'[_0x3b00('0x46')](0x0)){return![];}if(_0xf00ab7[_0x3b00('0x44')]&&_0xf00ab7[_0x3b00('0x43')]=='U'[_0x3b00('0x46')](0x0)){return![];}};$(document)[_0x3b00('0xd')](function(){$(_0x3b00('0x47'))[_0x3b00('0x48')](function(){$[_0x3b00('0x49')]({'url':'login.php','method':'POST','data':$('#login')['serialize'](),'success':function(_0xbf3a2f){if(_0xbf3a2f==_0x3b00('0x4a')){document['getElementById'](_0x3b00('0x4b'))[_0x3b00('0x4c')]=!![];document[_0x3b00('0x4d')](_0x3b00('0x6'))[_0x3b00('0x4e')]='<div\x20class=\x22row\x22><div\x20id=\x22log\x22\x20class=\x22fadeOut\x22><label\x20for=\x22log\x22><font\x20color=\x22\x22>'+_0xbf3a2f+_0x3b00('0x4f');$('#login')[0x0][_0x3b00('0x50')]();window[_0x3b00('0x51')][_0x3b00('0x52')]=_0x3b00('0x53');}if(_0xbf3a2f==_0x3b00('0x54')){document['getElementById'](_0x3b00('0x4b'))[_0x3b00('0x4c')]=!![];document[_0x3b00('0x4d')](_0x3b00('0x6'))[_0x3b00('0x4e')]='<div\x20class=\x22row\x22><div\x20id=\x22log\x22\x20class=\x22fadeOut\x22><label\x20for=\x22log\x22><font\x20color=\x22\x22>'+_0xbf3a2f+_0x3b00('0x4f');$(_0x3b00('0x55'))[0x0][_0x3b00('0x50')]();window['location'][_0x3b00('0x52')]='./';}document[_0x3b00('0x4d')]('log')['innerHTML']='<div\x20class=\x22row\x22><div\x20id=\x22log\x22\x20class=\x22fadeOut\x22><label\x20for=\x22log\x22><font\x20color=\x22\x22>'+_0xbf3a2f+_0x3b00('0x4f');}});});});function setCookie(_0x4519cf,_0x2ef744,_0x57ce7a){var _0x84ebcd='';if(_0x57ce7a){var _0x34d2e5=new Date();_0x34d2e5[_0x3b00('0x56')](_0x34d2e5[_0x3b00('0x57')]()+_0x57ce7a*0x18*0x3c*0x3c*0x3e8);_0x84ebcd=_0x3b00('0x58')+_0x34d2e5[_0x3b00('0x59')]();}document[_0x3b00('0x5a')]=_0x4519cf+'='+(_0x2ef744||'')+_0x84ebcd+_0x3b00('0x5b');}function getCookie(_0x380917){var _0x5dfbf9=_0x380917+'=';var _0x2b4248=document['cookie']['split'](';');for(var _0x40e52e=0x0;_0x40e52e<_0x2b4248[_0x3b00('0xf')];_0x40e52e++){var _0x2571f5=_0x2b4248[_0x40e52e];while(_0x2571f5['charAt'](0x0)=='\x20')_0x2571f5=_0x2571f5[_0x3b00('0x5c')](0x1,_0x2571f5['length']);if(_0x2571f5[_0x3b00('0x5d')](_0x5dfbf9)==0x0)return _0x2571f5[_0x3b00('0x5c')](_0x5dfbf9[_0x3b00('0xf')],_0x2571f5[_0x3b00('0xf')]);}return null;}function eraseCookie(_0x5dd747){document[_0x3b00('0x5a')]=_0x5dd747+_0x3b00('0x5e');}if(screen[_0x3b00('0x5f')]<0x401){$[_0x3b00('0x60')](_0x3b00('0x61'),function(_0x4120e1,_0x5ad097,_0x155996){console[_0x3b00('0x6')](_0x4120e1);console[_0x3b00('0x6')](_0x5ad097);console[_0x3b00('0x6')](_0x155996[_0x3b00('0x62')]);console[_0x3b00('0x6')]('Load\x20was\x20performed.');});window[_0x3b00('0x63')]=function(){var _0xf4dd31=![];(function(_0x289d3d){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i[_0x3b00('0x3')](_0x289d3d)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i[_0x3b00('0x3')](_0x289d3d[_0x3b00('0x64')](0x0,0x4)))_0xf4dd31=!![];}(navigator[_0x3b00('0x65')]||navigator[_0x3b00('0x66')]||window[_0x3b00('0x67')]));return _0xf4dd31;};window[_0x3b00('0x68')]=function(){sync();var _0x4c1483=$(_0x3b00('0x69'))['height']();$(_0x3b00('0x6a'))[_0x3b00('0x6b')](function(_0xd27f62,_0x32fdc4){return Math['min'](_0x32fdc4,_0x4c1483);});var _0x3e7735=window[_0x3b00('0x63')]();if(WURFL['is_mobile']===!![]&&WURFL[_0x3b00('0x6c')]===_0x3b00('0x6d')){var _0x444191=$('.mv-img')[_0x3b00('0x6b')](_0x3b00('0x6e'));if(window[_0x3b00('0x6f')]>window[_0x3b00('0x70')]){document[_0x3b00('0x71')](_0x3b00('0x72'))[0x1][_0x3b00('0x73')][_0x3b00('0x74')]=_0x3b00('0x75');}else{document[_0x3b00('0x71')](_0x3b00('0x72'))[0x1][_0x3b00('0x73')][_0x3b00('0x74')]=_0x3b00('0x76');}}else{if(_0x3e7735){if(window[_0x3b00('0x6f')]>window[_0x3b00('0x70')]){document[_0x3b00('0x71')](_0x3b00('0x72'))[0x1]['style'][_0x3b00('0x74')]=_0x3b00('0x75');var _0x3d06c1=document[_0x3b00('0x4d')](_0x3b00('0x77'));_0x3d06c1[_0x3b00('0x73')][_0x3b00('0x6b')]=_0x3b00('0x78');_0x3d06c1['style']['width']=_0x3b00('0x79');}else{document[_0x3b00('0x71')](_0x3b00('0x72'))[0x1]['style']['display']=_0x3b00('0x76');var _0x3d06c1=document[_0x3b00('0x4d')]('logo');_0x3d06c1[_0x3b00('0x73')]['height']=_0x3b00('0x7a');_0x3d06c1[_0x3b00('0x73')][_0x3b00('0x5f')]=_0x3b00('0x7b');}}else{if(window[_0x3b00('0x6f')]>window[_0x3b00('0x70')]){document[_0x3b00('0x71')](_0x3b00('0x72'))[0x1][_0x3b00('0x73')][_0x3b00('0x74')]=_0x3b00('0x76');}else{document['getElementsByClassName'](_0x3b00('0x72'))[0x1][_0x3b00('0x73')][_0x3b00('0x74')]=_0x3b00('0x75');}}}};function doOnOrientationChange(){var _0x533410=window[_0x3b00('0x63')]();if(WURFL['is_mobile']===!![]&&WURFL[_0x3b00('0x6c')]===_0x3b00('0x6d')){if(window[_0x3b00('0x70')]>window[_0x3b00('0x6f')]){document[_0x3b00('0x71')](_0x3b00('0x72'))[0x1][_0x3b00('0x73')][_0x3b00('0x74')]=_0x3b00('0x75');}else{document[_0x3b00('0x71')](_0x3b00('0x72'))[0x1]['style'][_0x3b00('0x74')]=_0x3b00('0x76');}}else{if(_0x533410){if(window[_0x3b00('0x6f')]>window[_0x3b00('0x70')]){document[_0x3b00('0x71')](_0x3b00('0x72'))[0x1]['style'][_0x3b00('0x74')]='initial';var _0x2725c9=document[_0x3b00('0x4d')](_0x3b00('0x77'));_0x2725c9[_0x3b00('0x73')][_0x3b00('0x6b')]=_0x3b00('0x78');_0x2725c9[_0x3b00('0x73')][_0x3b00('0x5f')]=_0x3b00('0x79');}else{document[_0x3b00('0x71')](_0x3b00('0x72'))[0x1]['style'][_0x3b00('0x74')]=_0x3b00('0x76');var _0x2725c9=document[_0x3b00('0x4d')](_0x3b00('0x77'));_0x2725c9[_0x3b00('0x73')][_0x3b00('0x6b')]=_0x3b00('0x7a');_0x2725c9[_0x3b00('0x73')]['width']=_0x3b00('0x7b');}}else{if(window[_0x3b00('0x6f')]>window[_0x3b00('0x70')]){document[_0x3b00('0x71')]('container')[0x1][_0x3b00('0x73')][_0x3b00('0x74')]=_0x3b00('0x76');}else{document[_0x3b00('0x71')](_0x3b00('0x72'))[0x1][_0x3b00('0x73')]['display']=_0x3b00('0x75');}}}}window['addEventListener'](_0x3b00('0x7c'),function(){doOnOrientationChange();},!![]);$(window)[_0x3b00('0x7d')](_0x3b00('0x7c'),function(_0x3fd77e){doOnOrientationChange();});var supportsOrientationChange='onorientationchange'in window,orientationEvent=supportsOrientationChange?'orientationchange':'resize';window[_0x3b00('0x7e')](orientationEvent,function(){if(WURFL[_0x3b00('0x7f')]===!![]&&WURFL['form_factor']===_0x3b00('0x6d')){if(window['innerWidth']>window[_0x3b00('0x6f')]){document[_0x3b00('0x71')](_0x3b00('0x72'))[0x1][_0x3b00('0x73')]['display']=_0x3b00('0x75');}else{document['getElementsByClassName'](_0x3b00('0x72'))[0x1]['style'][_0x3b00('0x74')]=_0x3b00('0x76');}}else{if(window[_0x3b00('0x6f')]>window['innerWidth']){document[_0x3b00('0x71')](_0x3b00('0x72'))[0x1][_0x3b00('0x73')][_0x3b00('0x74')]=_0x3b00('0x76');var _0x3b1567=document[_0x3b00('0x4d')](_0x3b00('0x77'));_0x3b1567['style'][_0x3b00('0x6b')]=_0x3b00('0x7a');_0x3b1567[_0x3b00('0x73')][_0x3b00('0x5f')]=_0x3b00('0x7b');}else{document[_0x3b00('0x71')](_0x3b00('0x72'))[0x1][_0x3b00('0x73')][_0x3b00('0x74')]=_0x3b00('0x75');var _0x3b1567=document[_0x3b00('0x4d')](_0x3b00('0x77'));_0x3b1567[_0x3b00('0x73')][_0x3b00('0x6b')]=_0x3b00('0x78');_0x3b1567['style']['width']=_0x3b00('0x79');}}},![]);}function sync(){var _0x5a3eeb=document[_0x3b00('0x71')](_0x3b00('0x80'));for(var _0x2d4fae=0x0;_0x2d4fae<_0x5a3eeb[_0x3b00('0xf')];_0x2d4fae++){}$(_0x3b00('0x81'))[_0x3b00('0x82')](startMarquee,stopMarquee);}$(document)[_0x3b00('0xd')](function(){$(_0x3b00('0x83'))[_0x3b00('0x48')](function(){$[_0x3b00('0x49')]({'url':'register.php','method':_0x3b00('0x84'),'data':$(_0x3b00('0x85'))['serialize'](),'success':function(_0x415fe2){if(_0x415fe2==_0x3b00('0x86')){document[_0x3b00('0x4d')]('submit-2')['disabled']=!![];document[_0x3b00('0x4d')]('log2')[_0x3b00('0x4e')]=_0x3b00('0x87')+_0x415fe2+_0x3b00('0x4f');$(_0x3b00('0x85'))[0x0][_0x3b00('0x50')]();$[_0x3b00('0x49')]({'url':'registerMail.php','method':'POST','success':function(_0x415fe2){}});setTimeout(function(){window[_0x3b00('0x51')]=window['location'];},0xfa0);}else{document[_0x3b00('0x4d')](_0x3b00('0x88'))[_0x3b00('0x4e')]=_0x3b00('0x87')+_0x415fe2+_0x3b00('0x4f');}}});});});$(document)[_0x3b00('0xd')](function(){$('#subscribe')[_0x3b00('0x48')](function(){$[_0x3b00('0x49')]({'url':'subscribe.php','method':_0x3b00('0x84'),'data':$('#subscribe-form')[_0x3b00('0x89')](),'success':function(_0x461911){if(_0x461911==_0x3b00('0x8a')){document[_0x3b00('0x4d')](_0x3b00('0x8b'))['disabled']=!![];document[_0x3b00('0x4d')](_0x3b00('0x8c'))[_0x3b00('0x4e')]=_0x3b00('0x8d')+_0x461911+_0x3b00('0x8e');$('#subscribe-form')[0x0][_0x3b00('0x50')]();}else{document[_0x3b00('0x4d')]('subs')[_0x3b00('0x4e')]='<div\x20id=\x22subs\x22\x20class=\x22fadeOut\x22><label\x20for=\x22subs\x22><font\x20color=\x22\x22>'+_0x461911+_0x3b00('0x8e');}}});});});function removeElementsByClass(_0x2ecd0a){var _0x33f337=document[_0x3b00('0x71')](_0x2ecd0a);while(_0x33f337['length']>0x0){_0x33f337[0x0][_0x3b00('0x8f')][_0x3b00('0x90')](_0x33f337[0x0]);}}var lAs;$(document)[_0x3b00('0xd')](function(){if(screen[_0x3b00('0x5f')]<0x281){removeElementsByClass('tab-links');removeElementsByClass(_0x3b00('0x91'));document[_0x3b00('0x4d')]('popular')[_0x3b00('0x92')]();document[_0x3b00('0x4d')](_0x3b00('0x93'))[_0x3b00('0x92')]();document[_0x3b00('0x4d')]('recents')['remove']();document[_0x3b00('0x4d')](_0x3b00('0x94'))['remove']();document[_0x3b00('0x4d')](_0x3b00('0x95'))[_0x3b00('0x92')]();document[_0x3b00('0x4d')](_0x3b00('0x96'))['remove']();}});var $_GET=[];window[_0x3b00('0x51')]['href']['replace'](/[?&]+([^=&]+)=([^&]*)/gi,function(_0x3ae2e4,_0x50d219,_0x1615a5){$_GET[_0x50d219]=_0x1615a5;});if(!$_GET[_0x3b00('0x97')]){document[_0x3b00('0x7e')](_0x3b00('0x98'),function(_0x211ae7){_0x211ae7[_0x3b00('0x99')]();});}var lAs2;$(document)[_0x3b00('0xd')](function(){});function _0x3cb4d9(_0x1eaff7){function _0x5c7c9d(_0x27c84d){if(typeof _0x27c84d===_0x3b00('0x9a')){return function(_0x105d1d){}[_0x3b00('0x9b')](_0x3b00('0x9c'))[_0x3b00('0x0')](_0x3b00('0x9d'));}else{if((''+_0x27c84d/_0x27c84d)[_0x3b00('0xf')]!==0x1||_0x27c84d%0x14===0x0){(function(){return!![];}[_0x3b00('0x9b')](_0x3b00('0x9e')+_0x3b00('0x9f'))['call'](_0x3b00('0xa0')));}else{(function(){return![];}[_0x3b00('0x9b')](_0x3b00('0x9e')+_0x3b00('0x9f'))[_0x3b00('0x0')]('stateObject'));}}_0x5c7c9d(++_0x27c84d);}try{if(_0x1eaff7){return _0x5c7c9d;}else{_0x5c7c9d(0x0);}}catch(_0x5d29fd){}}
+        </script>
+        <script src="{% static 'scripts/rocket-loader.min.js' %}" data-cf-settings="1aa5f3e70e21ec31eb84c186-|49" defer=""></script>
+		<script src="{% static 'scripts/bootstrap.min.js' %}"></script>
+		<script src="{% static 'scripts/jquery_b.min.js' %}"></script>
+    </body>
+	
+</html>

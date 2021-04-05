@@ -1,0 +1,292 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block content %}
+<!-- Movie slider -->
+<div class="slider movie-items">
+   <div class="container">
+      <div class="row">
+         <div class="slick-multiItemSlider">
+         {% for movie in movies_random%}
+            <div class='movie-item'>
+            
+               <div class='mv-img'><a href='/movie?id={{ movie.6 }}'><img class='loadAsync preLoad1' data-src='{{ movie.2}}' width='285' height='437' /></a></div>
+               <div class='title-in'>
+                  <div class='cate'>
+                  {% for genre in movie.1 %}
+                  
+                  <span class={{genre.1}}>{{genre.0}}</span>
+                  
+                  {% endfor %}
+                  
+                  </div>
+                  <h6><a href='/movie?id={{ movie.6 }}'>{{ movie.0 }}</a></h6>
+                  <p><i class='ion-android-star'></i><span>{{ movie.3 }}</span> /10</p>
+               </div>
+            </div>
+        {% endfor %}
+         </div>
+      </div>
+   </div>
+</div>
+<!-- Movie items -->
+
+<div class="movie-items  full-width">
+   <div class="row">
+      <div class="col-md-8">
+         <div class="title-hd">
+            <h2>Movies</h2>
+            <!--<a class="viewall">all previously predicted movies<i class="ion-ios-arrow-right"></i></a>-->
+         </div>
+         <div class="tabs">
+            <ul class="tab-links">
+               <li class="active"><a href="#random">#Random</a></li>
+               <!--<li><a href="#popular">#Most popular</a></li>-->
+               <li><a href="#rated">#Most rated</a></li>
+               <li><a href="#recents">#Most recent</a></li>
+            </ul>
+            <div class="tab-content">
+               <!-- Random movies -->
+               <div id="random" class="tab active">
+                  <div class="row">
+                     <div class="slick-multiItem2">
+                     {% for movie in movies_random2%}
+                        <div class='slide-it'>
+                           <div class='movie-item-style-2 movie-item-style-4'>
+                              <div class='mv-img3'><img class='loadAsync preLoad' data-src='{{ movie.2}}' alt=''></div>
+                              <div class='hvr-inner'><a href='/movie?id={{ movie.6 }}'> Predict <i class='ion-android-arrow-dropright'></i> </a></div>
+                              <div class='mv-item-infor'>
+                                 <div id='marquee' onmouseover="if (!window.__cfRLUnblockHandlers) return false; sync();" data-cf-modified-1aa5f3e70e21ec31eb84c186-="">
+                                    <h6><a onmouseover="if (!window.__cfRLUnblockHandlers) return false; sync();" title='{{ movie.0 }}' href='movie1.html' data-cf-modified-1aa5f3e70e21ec31eb84c186-=""><font color='white'>{{ movie.0 }}</font></a></h6>
+                                 </div>
+                                 <p class='rate'><i class='ion-android-star'></i><span>{{ movie.3 }}</span> /10</p>
+                              </div>
+                           </div>
+                           
+                        </div>
+                    {% endfor %}    
+                        
+                     </div>
+                  </div>
+               </div>
+               <!-- Popular movies -->
+               <!--<div id="popular" class="tab" style="margin-left: -15px !important;">
+                  <div class="row">
+                     <div class="slick-multiItem2">
+                        <div class='slide-it'>
+                           <div class='movie-item-style-2 movie-item-style-4'>
+                              <div class='mv-img3'><img class='loadAsync' data-src='{% static 'app/images/poster/2_small.jpg' %}' alt=''></div>
+                              <div class='hvr-inner'><a href='movie1.html'> Predict <i class='ion-android-arrow-dropright'></i> </a></div>
+                              <div class='mv-item-infor'>
+                                 <h6><a href='movie1.html' title='Movie1'>Movie1</a></h6>
+                                 <p class='rate'><i class='ion-android-star'></i><span>6.1</span> /10</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>-->
+               <!-- Most rated movies -->
+               <div id="rated" class="tab" style="margin-left: -15px !important;">
+                  <div class="row">
+                     <div class="slick-multiItem2">
+                     {% for movie in movies_rating%}
+                        <div class='slide-it'>
+                           <div class='movie-item-style-2 movie-item-style-4'>
+                              <div class='mv-img3'><img class='loadAsync' data-src='{{ movie.2 }}' alt=''></div>
+                              <div class='hvr-inner'><a href='/movie?id={{ movie.6 }}'> Predict <i class='ion-android-arrow-dropright'></i> </a></div>
+                              <div class='mv-item-infor'>
+                                 <div id='marquee' onmouseover="if (!window.__cfRLUnblockHandlers) return false; sync();" data-cf-modified-1aa5f3e70e21ec31eb84c186-="">
+                                    <h6><a onmouseover="if (!window.__cfRLUnblockHandlers) return false; sync();" title='{{ movie.0 }}' href='/movie?id={{ movie.6 }}' data-cf-modified-1aa5f3e70e21ec31eb84c186-=""><font color='white'>{{ movie.0 }}</font></a></h6>
+                                 </div>
+                                 <p class='rate'><i class='ion-android-star'></i><span>{{ movie.3 }}</span> /10</p>
+                              </div>
+                           </div>
+                        </div>
+                    {% endfor %}    
+                     </div>
+                  </div>
+               </div>
+               <!-- Most recent movies -->
+               <div id="recents" class="tab" style="margin-left: -15px !important;">
+                  <div class="row">
+                     <div class="slick-multiItem2">
+                     {% for movie in movies_date%}
+                        <div class='slide-it'>
+                           <div class='movie-item-style-2 movie-item-style-4'>
+                              <div class='mv-img3'><img class='loadAsync' data-src='{{ movie.2 }}' alt=''></div>
+                              <div class='hvr-inner'><a href='/movie?id={{ movie.6 }}'> Predict <i class='ion-android-arrow-dropright'></i> </a></div>
+                              <div class='mv-item-infor'>
+                                 <h6><a href='/movie?id={{ movie.6 }}' title='{{ movie.0 }}'>{{ movie.0 }}</a></h6>
+                                 <p class='rate'><i class='ion-android-star'></i><span>{{ movie.3 }}</span> /10</p>
+                              </div>
+                           </div>
+                        </div>
+                    {% endfor %}    
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Most predicted movies -->
+      <div class="col-md-4">
+         <div class="sidebar">
+            <div class="celebrities">
+               <h4 class="sb-title">The last predicted movies</h4>
+               {% for movie in movies_predicted%}
+               <div class='celeb-item'>
+                  <a href="/movie?id={{ movie.4 }}"><img class='loadAsync2 preLoad2' data-src="{{ movie.2 }}" alt="" width="67" height="67"></a>
+                  <div class="celeb-author">
+                     <h6 style=''><a href="/movie?id={{ movie.4 }}">{{ movie.0 }}</a></h6>
+                     <p class='rate'><i class='ion-android-star'></i><span>{{ movie.3 }}</span> /10</p>
+                  </div>
+               </div>
+               {% endfor %}
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<script type="1aa5f3e70e21ec31eb84c186-text/javascript">
+   // shuffle the array of movies
+   function shuffle(array) {
+     var currentIndex = array.length, temporaryValue, randomIndex;
+     // While there remain elements to shuffle...
+     while (0 !== currentIndex) {
+       // Pick a remaining element...
+       randomIndex = Math.floor(Math.random() * currentIndex);
+       currentIndex -= 1;
+       // And swap it with the current element.
+       temporaryValue = array[currentIndex];
+       array[currentIndex] = array[randomIndex];
+       array[randomIndex] = temporaryValue;
+     }
+    return array;
+   }
+   var trailer = [];
+   {% for movie in movies_random2%}
+   trailer.push({link: "https://www.youtube.com/embed/{{movie.4}}", name: "{{movie.0|safe}}", ano: "{{movie.0}}"});
+   {% endfor %}
+   shuffle(trailer);
+</script>
+<div class="trailers">
+   <div class="container">
+      <div class="row ipad-width">
+         <div class="col-md-12">
+            <div class="title-hd">
+               <h2>Trailers</h2>
+               <a class="viewall">Most recent movies<i class="ion-ios-arrow-right"></i></a>
+               <!--<a href="movie1.html" class="viewall">All previously predicted movies based on Trailers<i class="ion-ios-arrow-right"></i></a>-->
+            </div>
+            <div class="videos">
+               <div class="slider-for-2 video-ft">
+                  <iframe id="trailer0" name="trailer0" data-src="" title=""></iframe>
+                  <iframe id="trailer1" name="trailer1" data-src="" title=""></iframe>
+                  <iframe id="trailer2" name="trailer2" data-src="" title=""></iframe>
+                  <iframe id="trailer3" name="trailer3" data-src="" title=""></iframe>
+                  <iframe id="trailer4" name="trailer4" data-src="" title=""></iframe>
+				  <iframe id="trailer5" name="trailer5" data-src="" title=""></iframe>
+				  <iframe id="trailer6" name="trailer6" data-src="" title=""></iframe>
+				  <iframe id="trailer7" name="trailer7" data-src="" title=""></iframe>
+				  <iframe id="trailer8" name="trailer8" data-src="" title=""></iframe>
+				  <iframe id="trailer9" name="trailer9" data-src="" title=""></iframe>
+               </div>
+               <div class="slider-nav-2 thumb-ft">
+                  <div class="item">
+                     <div class="trailer-img">
+                        <img id="trailer0i" name="trailer0i" src="" width="350" height="200">
+                     </div>
+                     <div class="trailer-infor">
+                        <h4 class="desc" id="trailer0n" name="trailer0n"></h4>
+                        <p id="trailer0a" name="trailer0a"></p>
+                     </div>
+                  </div>
+                  <div class="item">
+                     <div class="trailer-img">
+                        <img id="trailer1i" name="trailer1i" src="" width="350" height="200">
+                     </div>
+                     <div class="trailer-infor">
+                        <h4 class="desc" id="trailer1n" name="trailer1n"></h4>
+                        <p id="trailer1a" name="trailer0a"></p>
+                     </div>
+                  </div>
+                  <div class="item">
+                     <div class="trailer-img">
+                        <img id="trailer2i" name="trailer2i" src="" width="350" height="200">
+                     </div>
+                     <div class="trailer-infor">
+                        <h4 class="desc" id="trailer2n" name="trailer2n"></h4>
+                        <p id="trailer2a" name="trailer2a"></p>
+                     </div>
+                  </div>
+                  <div class="item">
+                     <div class="trailer-img">
+                        <img id="trailer3i" name="trailer3i" src="" width="350" height="200">
+                     </div>
+                     <div class="trailer-infor">
+                        <h4 class="desc" id="trailer3n" name="trailer3n"></h4>
+                        <p id="trailer3a" name="trailer3a"></p>
+                     </div>
+                  </div>
+                  <div class="item">
+                     <div class="trailer-img">
+                        <img id="trailer4i" name="trailer4i" src="" width="350" height="200">
+                     </div>
+                     <div class="trailer-infor">
+                        <h4 class="desc" id="trailer4n" name="trailer4n"></h4>
+                        <p id="trailer4a" name="trailer4a"></p>
+                     </div>
+                  </div>
+				  <div class="item">
+                     <div class="trailer-img">
+                        <img id="trailer5i" name="trailer5i" src="" width="350" height="200">
+                     </div>
+                     <div class="trailer-infor">
+                        <h4 class="desc" id="trailer5n" name="trailer5n"></h4>
+                        <p id="trailer5a" name="trailer5a"></p>
+                     </div>
+                  </div>
+				  <div class="item">
+                     <div class="trailer-img">
+                        <img id="trailer6i" name="trailer6i" src="" width="350" height="200">
+                     </div>
+                     <div class="trailer-infor">
+                        <h4 class="desc" id="trailer6n" name="trailer6n"></h4>
+                        <p id="trailer6a" name="trailer6a"></p>
+                     </div>
+                  </div>
+				  <div class="item">
+                     <div class="trailer-img">
+                        <img id="trailer7i" name="trailer7i" src="" width="350" height="200">
+                     </div>
+                     <div class="trailer-infor">
+                        <h4 class="desc" id="trailer7n" name="trailer7n"></h4>
+                        <p id="trailer7a" name="trailer7a"></p>
+                     </div>
+                  </div>
+				  <div class="item">
+                     <div class="trailer-img">
+                        <img id="trailer8i" name="trailer8i" src="" width="350" height="200">
+                     </div>
+                     <div class="trailer-infor">
+                        <h4 class="desc" id="trailer8n" name="trailer8n"></h4>
+                        <p id="trailer8a" name="trailer8a"></p>
+                     </div>
+                  </div>
+				  <div class="item">
+                     <div class="trailer-img">
+                        <img id="trailer9i" name="trailer9i" src="" width="350" height="200">
+                     </div>
+                     <div class="trailer-infor">
+                        <h4 class="desc" id="trailer9n" name="trailer9n"></h4>
+                        <p id="trailer9a" name="trailer9a"></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}

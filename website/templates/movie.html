@@ -1,0 +1,423 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block content %}
+{% csrf_token %}
+<div id="preloader_search" style="display: inline;">
+<div id="preloader"  style="filter: alpha(opacity=100); opacity: 1; -moz-opacity: 1;">
+<img class="logo" src="{% static 'images/logo1.png' %}" alt="" width="119" height="58">
+<div id="status">
+	<span></span>
+	<span></span>
+	<div style="position: absolute;left:10px; top: -25px ; color: #FFF; width : 120px" id="preloader_label"> loading ...</div>
+</div>
+</div>
+</div>
+<div class="hero mv-single-hero">
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+</div>
+</div>
+</div>
+</div>
+
+<div  class="page-single movie-single movie_single">
+<div class="container">
+<div class="row ipad-width2">
+<div class="col-md-4 col-sm-12 col-xs-12">
+<div class="movie-img sticky-sb">
+<div id='img'> </div>
+<div class="movie-btn">
+<div class="btn-transform transform-vertical red">
+<div><a id='youtube_trailer' href="" class="item item-1 redbtn"> <i class="ion-play"></i> Trailer</a></div>
+<div><a id='youtube_trailer2' href="" class='item item-2 redbtn fancybox-media hvr-grow' onclick="if (!window.__cfRLUnblockHandlers) return false; goTop();" data-cf-modified-fc47e82e0494e2016cfe4cd8-=""><i class='ion-play'></i></a></div> </div>
+</div>
+<div style="position:relative; left:20px; top:10px">
+<div style="float: left; width:50%">
+<center><p style="color:#abb7c5;"><b>Meta-data-based</b><p></center>
+<div id="metadata-prediction-btn">
+<button type="button" class="btn btn-lg btn-secondary btn-toggle active" data-toggle="button" aria-pressed="true" autocomplete="off">
+<div class="handle"></div>
+</button>
+</div>
+</div>
+<div style="float: left; width:50%">
+<center><p style="color:#abb7c5;"><b>Video-based</b><p></center>
+<div id="trailer-prediction-btn" style="float: left;">
+<button type="button" class="btn btn-lg btn-secondary btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off">
+<div class="handle"></div>
+</button>
+</div>
+</div>
+
+<div style="padding-top:70px; margin-left:-25px">
+<center>
+
+<form id="predict_form" method="post">
+{% csrf_token %}
+<button onclick="Clicked(this);"  class="button_predict" style="vertical-align:middle" name="predictBtn" type="submit">
+<span><b>PREDICT</b></span>
+</button>
+</form>
+				
+
+</center>
+</div>
+</div>
+
+</div>
+</div>
+<div class="col-md-8 col-sm-12 col-xs-12">
+<div class="movie-single-ct main-content">
+<h1 id="title" class="bd-hd"> </h1>
+<div class="movie-rate">
+<div class="rate">
+<i class="ion-android-star"></i>
+<p><span id="rating"></span> /10<br>
+<span class="rv">IMDb rating</span>
+</p>
+</div>
+<div id="stars" class="rate-star"></div>
+</div>
+<div class="movie-tabs">
+<div class="tabs">
+
+<div class="tab-content">
+<div id="overview" class="tab active">
+<div class="row">
+<div class="col-md-8 col-sm-12 col-xs-12">
+<!--googleoff: index-->
+<div id="description" class="mv-user-review-item robots-nocontent">
+</div>
+<div id="total_value" class="mv-user-review-item robots-nocontent"> </div>
+
+<div id="real_value" class="mv-user-review-item robots-nocontent"> </div>
+<div id="metadata_prediction" class="mv-user-review-item robots-nocontent"> </div>
+<div id="trailer_prediction" class="mv-user-review-item robots-nocontent"> </div>
+<div id="mixed_prediction" class="mv-user-review-item robots-nocontent"> </div>
+<div style="display:none;" id="output_features">
+<div id="table_emotions" class="mv-user-review-item robots-nocontent" >
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-bdaa{font-weight:bold;color:#efefef;border-color:#333333;text-align:center;vertical-align:middle}
+.tg .tg-z5eq{font-weight:bold;color:#efefef;border-color:#333333;text-align:center;vertical-align:top}
+.tg .tg-gwj3{color:#efefef;border-color:#333333;text-align:center;vertical-align:middle}
+.tg .tg-q0wh{color:#efefef;border-color:#333333;text-align:center;vertical-align:top}
+</style>
+<h3>Emotions</h3>
+<table class="tg" >
+  <tr>
+    <th class="tg-z5eq" style="width:10%"><img class="logo" src="{% static 'images/anger.png' %}" alt="" width="40px"><br>Anger</th>
+    <th class="tg-z5eq"  style="width:10%"><img class="logo" src="{% static 'images/disgust.png' %}" alt="" width="40px"><br>Disgust</th>
+    <th class="tg-z5eq" style="width:10%"><img class="logo" src="{% static 'images/fear.png' %}" alt="" width="40px"><br>Fear</th>
+    <th class="tg-z5eq" style="width:10%"><img class="logo" src="{% static 'images/happy.png' %}" alt="" width="40px"><br>Happy</th>
+    <th class="tg-z5eq" style="width:10%"><img class="logo" src="{% static 'images/sad.png' %}" alt="" width="40px"><br>Sad</th>
+    <th class="tg-z5eq" style="width:10%"><img class="logo" src="{% static 'images/surprise.png' %}" alt="" width="40px"><br>Surprise</th>
+    <th class="tg-z5eq" style="width:10%"><img class="logo" src="{% static 'images/neutral.png' %}" alt="" width="40px"><br>Neutral</th>
+  </tr>
+  <tr>
+    <td class="tg-bdaa" id="td_anger"></td>
+    <td class="tg-gwj3"id="td_disgust"></td>
+    <td class="tg-bdaa" id="td_fear"></td>
+    <td class="tg-gwj3" id="td_happy"></td>
+    <td class="tg-q0wh" id="td_sad"></td>
+    <td class="tg-q0wh" id="td_surprise"></td>
+    <td class="tg-q0wh" id="td_neutral"></td>
+  </tr>
+</table>
+</div>
+
+<div id="table_quality" class="mv-user-review-item robots-nocontent"  >
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-0piz{font-weight:bold;color:#efefef;border-color:#343434;text-align:center;vertical-align:top}
+.tg .tg-eiyt{font-weight:bold;color:#efefef;border-color:#343434;text-align:center;vertical-align:middle}
+.tg .tg-dquk{color:#efefef;border-color:#343434;text-align:center;vertical-align:middle}
+</style>
+<h3>Color features</h3>
+<table class="tg">
+  <tr>
+    <th class="tg-0piz">Red</th>
+    <th class="tg-0piz">Green</th>
+    <th class="tg-0piz">Blue</th>
+    <th class="tg-0piz">Brightness</th>
+  </tr>
+  <tr>
+    <td class="tg-eiyt" id="td_red"></td>
+    <td class="tg-dquk" id="td_green"></td>
+    <td class="tg-eiyt" id="td_blue"></td>
+    <td class="tg-dquk" id="td_brightness"></td>
+  </tr>
+</table>
+</div>
+
+<div id="table_resolution" class="mv-user-review-item robots-nocontent"  >
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-0piz{font-weight:bold;color:#efefef;border-color:#343434;text-align:center;vertical-align:top}
+.tg .tg-eiyt{font-weight:bold;color:#efefef;border-color:#343434;text-align:center;vertical-align:middle}
+.tg .tg-dquk{color:#efefef;border-color:#343434;text-align:center;vertical-align:middle}
+</style>
+<h3>Video parameters</h3>
+<table class="tg">
+  <tr>
+    <th class="tg-0piz">Framerate</th>
+    <th class="tg-0piz">Height</th>
+    <th class="tg-0piz">Width</th>
+    <th class="tg-0piz">Duration</th>
+  </tr>
+  <tr>
+    <td class="tg-eiyt" id="td_fps"></td>
+    <td class="tg-dquk" id="td_height"></td>
+    <td class="tg-eiyt" id="td_width"></td>
+    <td class="tg-dquk" id="td_duration"></td>
+  </tr>
+</table>
+</div>
+
+
+<div id="table_audio" class="mv-user-review-item robots-nocontent"  >
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-0piz{font-weight:bold;color:#efefef;border-color:#343434;text-align:center;vertical-align:top}
+.tg .tg-eiyt{font-weight:bold;color:#efefef;border-color:#343434;text-align:center;vertical-align:middle}
+.tg .tg-dquk{color:#efefef;border-color:#343434;text-align:center;vertical-align:middle}
+</style>
+<h3>Audio features</h3>
+<table class="tg">
+  <tr>
+    <th class="tg-0piz">MFCC</th>
+    <th class="tg-0piz">Beat</th>
+    <th class="tg-0piz">Beat confidence</th>
+  </tr>
+  <tr>
+    <td class="tg-eiyt"id="td_mfcc"></td>
+    <td class="tg-dquk" id="td_beat"></td>
+    <td class="tg-eiyt" id="td_beat_confidence"></td>
+  </tr>
+</table>
+</div>
+</div>
+<div id="review" class="mv-user-review-item robots-nocontent">
+</div>
+<!--googleon: index-->
+</div>
+<div class="col-md-4 col-xs-12 col-sm-12">
+<div id ="directors" class="sb-it"> </div>
+<div id ="actors" class="sb-it"> </div>
+<div id ="creators" class="sb-it"> </div>
+<div class="sb-it">
+<h6>Release Date:</h6>
+<p id="year"></p>
+</div>
+<div class="sb-it">
+<h6>Duration:</h6>
+<p id="duration"></p>
+</div>
+<div class="sb-it">
+<h6>Genre:</h6>
+<p id="genres" class="tags"></p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+};
+function addCommas(nStr)
+	{
+		nStr += '';
+		x = nStr.split('.');
+		x1 = x[0];
+		x2 = x.length > 1 ? '.' + x[1] : '';
+		var rgx = /(\d+)(\d{3})/;
+		while (rgx.test(x1)) {
+			x1 = x1.replace(rgx, '$1' + ',' + '$2');
+		}
+		return x1 + x2;
+	};
+var metadata_pred_bool = true;
+var trailer_pred_bool = false;
+$( "#metadata-prediction-btn" ).click(function() {
+metadata_pred_bool = !metadata_pred_bool;
+});
+
+$( "#trailer-prediction-btn" ).click(function() {
+trailer_pred_bool = !trailer_pred_bool; 
+});
+
+var trailer_url_id = null;
+$(function() {
+ 
+  $('#predict_form').submit(function(event) {
+	if (submit.name == "predictBtn") {
+	document.getElementById("predict_loading").style.display = "inline";
+	
+	}
+	// You gotta include the csrf_token in your post data
+	event.preventDefault();
+	$.ajax({
+		type: "POST",
+	   url: '{% url 'search_query' %}',
+	   data: { csrfmiddlewaretoken: '{{ csrf_token }}', fct: 'predict_value', imdb_id: getUrlParameter('id'), trailer_url: trailer_url_id, metadata_pred_bool: metadata_pred_bool, trailer_pred_bool: trailer_pred_bool },
+	   success: function callback(data, textStatus){
+            document.getElementById("output_features").style.display  = "none";
+			document.getElementById("metadata_prediction").innerHTML  = "";
+			document.getElementById("trailer_prediction").innerHTML  = "";
+			document.getElementById("mixed_prediction").innerHTML  = "";
+			lists = data.split(",");
+			document.getElementById("predict_loading").style.display = "none";
+            //alert(lists)
+			if (lists[0] != 'null'){
+				document.getElementById("metadata_prediction").innerHTML = "<h3>Opening Weekends Revenue (Prediction based on meta-data)</h3><p style='color:red;' >$"+addCommas(lists[0])+"</p><br>";
+			}
+            
+			if (lists[1] != 'null'){
+				document.getElementById("trailer_prediction").innerHTML = "<h3>Opening Weekends Revenue (Prediction based on trailer)</h3><p style='color:red;' >$"+addCommas(lists[1])+"</p><br>";
+                document.getElementById("output_features").style.display  = "inline";
+                var val_anger = parseFloat(lists[3]);
+                var val_disgust = parseFloat(lists[5]);
+                var val_fear = parseFloat(lists[7]);
+                var val_happy = parseFloat(lists[9]);
+                var val_sad = parseFloat(lists[11]);
+                var val_surprise = parseFloat(lists[13]);
+                var val_neutral = parseFloat(lists[15]);
+                
+                var summe_emotions = val_anger + val_disgust + val_fear + val_happy + val_sad + val_surprise +val_neutral;
+                
+                document.getElementById("td_anger").innerHTML = parseFloat(Math.round(val_anger/summe_emotions * 100)).toFixed(1) +"%";
+                document.getElementById("td_disgust").innerHTML = parseFloat(Math.round(val_disgust/summe_emotions * 100)).toFixed(1) +"%";
+                document.getElementById("td_fear").innerHTML = parseFloat(Math.round(val_fear/summe_emotions * 100)).toFixed(1) +"%";
+                document.getElementById("td_happy").innerHTML = parseFloat(Math.round(val_happy/summe_emotions * 100)).toFixed(1) +"%";
+                document.getElementById("td_sad").innerHTML = parseFloat(Math.round(val_sad/summe_emotions * 100)).toFixed(1) +"%";
+                document.getElementById("td_surprise").innerHTML = parseFloat(Math.round(val_surprise/summe_emotions * 100)).toFixed(1) +"%";
+                document.getElementById("td_neutral").innerHTML = parseFloat(Math.round(val_neutral/summe_emotions * 100)).toFixed(1) +"%";
+                
+                
+                document.getElementById("td_red").innerHTML = parseFloat(Math.round(parseFloat(lists[17]) * 100)/100).toFixed(2);
+                document.getElementById("td_green").innerHTML = parseFloat(Math.round(parseFloat(lists[19]) * 100)/100).toFixed(2);
+                document.getElementById("td_blue").innerHTML = parseFloat(Math.round(parseFloat(lists[21]) * 100)/100).toFixed(2);
+                document.getElementById("td_brightness").innerHTML = parseFloat(Math.round(parseFloat(lists[23]) * 100)/100).toFixed(2);
+                document.getElementById("td_fps").innerHTML = parseFloat(Math.round(parseFloat(lists[25]) * 100)/100).toFixed(1);
+                document.getElementById("td_width").innerHTML = parseFloat(Math.round(parseFloat(lists[26]) * 100)/100).toFixed(1);
+                document.getElementById("td_height").innerHTML = parseFloat(Math.round(parseFloat(lists[27]) * 100)/100).toFixed(1);
+                document.getElementById("td_duration").innerHTML = parseFloat(Math.round(parseFloat(lists[28]) * 100)/100).toFixed(2);
+                document.getElementById("td_mfcc").innerHTML = parseFloat(Math.round(parseFloat(lists[29]) * 100)/100).toFixed(2);
+                document.getElementById("td_beat").innerHTML = parseFloat(Math.round(parseFloat(lists[30]) * 100)/100).toFixed(2);
+                document.getElementById("td_beat_confidence").innerHTML = parseFloat(Math.round(parseFloat(lists[31]) * 100)/100).toFixed(2);
+                
+			}
+			if (lists[2] != 'null'){
+				document.getElementById("metadata_prediction").innerHTML  = "";
+				document.getElementById("trailer_prediction").innerHTML  = "";
+				document.getElementById("mixed_prediction").innerHTML = "<h3>Opening Weekends Revenue (Prediction based on meta-data and trailer)</h3><p style='color:red;' >$"+addCommas(lists[2])+"</p><br>";
+			}
+		},
+		//error: function(xhr, status, e) {
+		//	alert(status, e);
+		//}
+		
+	});
+  });
+
+});
+
+$.ajax({
+   type: "POST",
+   url: '{% url 'search_query' %}',
+   data: { csrfmiddlewaretoken: '{{ csrf_token }}', fct: 'search_movie', id: getUrlParameter('id') },
+   success: function callback(data, textStatus){
+				document.getElementById("preloader_search").style.display = "none";
+				jsondata = JSON.parse(JSON.stringify(data));
+				if(jsondata.image != null)	
+				document.getElementById("img").innerHTML = "<img src='"+jsondata.image+"' alt='Film poster'>" ;
+				if(jsondata.youtube != null){
+				trailer_url_id = JSON.stringify(jsondata.youtube.url).slice(10, -1);
+				document.getElementById("youtube_trailer").href = "https://www.youtube.com/embed/" + JSON.stringify(jsondata.youtube.url).slice(10, -1) ;
+				}
+				if(jsondata.youtube != null)
+				document.getElementById("youtube_trailer2").href = "https://www.youtube.com/embed/" + JSON.stringify(jsondata.youtube.url).slice(10, -1) ;
+				if(jsondata.year != null)
+				document.getElementById("title").innerHTML = jsondata.name + " <span>"+jsondata.year+"</span>" ;
+				if(jsondata.aggregateRating != null)
+				document.getElementById("rating").innerHTML =  jsondata.aggregateRating.ratingValue;
+				var i;
+				var stars = "<p>Rating: </p>";
+				for (i = 0; i < Math.floor(Number(jsondata.aggregateRating.ratingValue)); i++) { 
+				  stars += "<i class='ion-ios-star'></i>";
+				}
+				document.getElementById("stars").innerHTML = stars ;
+				if(jsondata.outline != null)
+				document.getElementById("description").innerHTML = "<h3>Storyline</h3><p >"+jsondata.outline+"</p><br>";
+				
+				if(jsondata.review != null)
+				document.getElementById("review").innerHTML = "<h3>Review: "+jsondata.review.name+"</h3><p>"+jsondata.review.reviewBody+"</p><div style = 'text-align: right; color: gray; font-size:12px;'>"+jsondata.review.author['name']+", "+jsondata.review.dateCreated+"</div><br>";
+				
+				document.getElementById("directors").innerHTML = "<h6>Director: </h6><p><a target='_blank' href='https://www.google.com/search?q="+JSON.stringify(jsondata.director.name).slice(1,-1)+"'>"+JSON.stringify(jsondata.director.name).slice(1,-1)+"</a></p>";
+				
+				var i;
+				var genres = "";
+				for (i = 0; i < Object.keys(jsondata.genre).length; i++) { 
+				  genres += "<span class='time'><a>"+JSON.stringify(jsondata.genre[i]).slice(1,-1)+"</a></span> ";
+				}
+				document.getElementById("genres").innerHTML = genres;
+				
+				var i;
+				var actors = "<h6>Actors: </h6><p>";
+				for (i = 0; i < Object.keys(jsondata.actor).length; i++) { 
+				  actors += "<p><a target='_blank' href='https://www.google.com/search?q="+JSON.stringify(jsondata.actor[i].name).slice(1,-1)+"'>"+JSON.stringify(jsondata.actor[i].name).slice(1,-1)+"</a></p>";
+				}
+				document.getElementById("actors").innerHTML = actors.slice(0,-4)+"</p>";
+				
+				var i;
+				var creators = "<h6>Creators: </h6>";
+				for (i = 0; i < Object.keys(jsondata.creator).length; i++) { 
+				if(JSON.stringify(jsondata.creator[i]['@type']) == '"Person"'){
+				  creators += "<p><a target='_blank' href='https://www.google.com/search?q="+JSON.stringify(jsondata.creator[i].name).slice(1,-1)+"'>"+JSON.stringify(jsondata.creator[i].name).slice(1,-1)+"</a></p>";
+				  }
+				}
+				if(jsondata.creators != null)
+				document.getElementById("creators").innerHTML = creators;
+				
+				if(jsondata.year != null)
+				document.getElementById("year").innerHTML = jsondata.year;
+				
+				if(jsondata.duration != null)
+				document.getElementById("duration").innerHTML = jsondata.duration.replace("PT", "").replace("M", "min").replace("H", "h");
+				
+				if(jsondata.total_value != null)
+				document.getElementById("total_value").innerHTML = "<h3>Total Revenue</h3><p >$"+addCommas(jsondata.total_value)+"</p><br>";
+				
+				if(jsondata.real_value != null)
+				document.getElementById("real_value").innerHTML = "<h3>Opening Weekends Revenue (Ground truth)</h3><p >$"+addCommas(jsondata.real_value)+"</p><br>";
+				
+				
+            }
+});
+</script>
+
+
+{% endblock %}
